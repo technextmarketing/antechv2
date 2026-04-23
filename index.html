@@ -1276,6 +1276,32 @@
     .metric{padding:0;border:none !important;}
     .wrap{padding:0 24px;}
     .form-row{grid-template-columns:1fr;}
+
+    /* ── Flow diagram mobile ── */
+    .flow-section{padding:72px 20px;}
+    .flow-stage{padding:24px 16px;}
+    .flow-tabs{
+      flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;gap:8px;
+    }
+    .flow-tabs::-webkit-scrollbar{display:none;}
+    .flow-tab{flex-shrink:0;padding:8px 14px;font-size:.75rem;}
+    .flow-info{padding:10px 14px;font-size:.82rem;min-height:auto;gap:8px;flex-direction:column;text-align:center;}
+    .flow-steps{flex-direction:column;align-items:stretch;gap:0;}
+    .flow-node{
+      flex-direction:row;text-align:left;min-width:unset;width:100%;
+      padding:14px 16px;gap:14px;align-items:center;
+    }
+    .fn-num{position:static;transform:none;flex-shrink:0;width:24px;height:24px;}
+    .fn-icon{width:28px;height:28px;margin-bottom:0;flex-shrink:0;}
+    .fn-name{font-size:.88rem;}
+    .fn-detail{font-size:.7rem;}
+    .flow-arrow{
+      display:block;text-align:center;font-size:1.1rem;padding:2px 0;
+      transform:rotate(90deg);animation:none;color:var(--accent);opacity:.5;
+    }
+    .flow-play-row{flex-direction:column;gap:10px;}
+    .flow-play-btn{width:100%;justify-content:center;}
   }
   @media(max-width:480px){
     .hero h1{font-size:2rem;}
