@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Antech-Enviro Phils., Inc. — Semiconductor Reliability, Inspection & PCB Services</title>
-<meta name="description" content="Antech-Enviro Phils., Inc. — since 1999, a trusted partner to the Philippine semiconductor and electronics industry for QRA, inspection, PCB design, assembly, and precision test solutions." />
+<title>Antech-Enviro Phils., Inc. — Semiconductor Inspection, Reliability Testing &amp; PCB Services</title>
+<meta name="description" content="Single-source Philippine supplier of QRA equipment, inspection tools, production consumables, probe cards, and end-to-end PCB design, assembly, and repair for semiconductor, EMS, automotive, and medical manufacturers." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
   .cursor-glow{
     position:fixed;top:0;left:0;width:540px;height:540px;border-radius:50%;
     pointer-events:none;z-index:0;
-    background:radial-gradient(circle,rgba(70,227,196,.12),rgba(56,189,248,.04) 40%,transparent 70%);
+    background:radial-gradient(circle,rgba(209,122,63,.12),rgba(244,182,120,.04) 40%,transparent 70%);
     transform:translate(-50%,-50%);
     transition:opacity .4s;
     mix-blend-mode:screen;
@@ -61,22 +61,12 @@
   }
 
   /* ============ HERO ANIMATION ============ */
-  .hero h1 .word{
-    display:inline-block;opacity:0;transform:translateY(40px) rotateX(-20deg);
-    transform-origin:bottom;
-    animation:wordIn .9s cubic-bezier(.2,.8,.2,1) forwards;
+  .hero h1{
+    opacity:0;transform:translateY(28px);
+    animation:headingIn 1s cubic-bezier(.16,1,.3,1) .25s forwards;
   }
-  .hero h1 em .word{color:transparent;}
-  @keyframes wordIn{to{opacity:1;transform:none;}}
-
-  .hero h1 em{
-    background-size:200% 200%;
-    animation:gradientShift 6s ease infinite;
-  }
-  @keyframes gradientShift{
-    0%,100%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-  }
+  .hero h1 em{color:var(--accent);}
+  @keyframes headingIn{to{opacity:1;transform:none;}}
 
   /* Caret cursor after heading */
   .hero h1::after{
@@ -94,9 +84,9 @@
     opacity:0;transform:translateY(24px);
     animation:fadeUp .9s cubic-bezier(.2,.8,.2,1) forwards;
   }
-  .hero-lead{animation-delay:1.1s;}
-  .hero-cta-row{animation-delay:1.3s;}
-  .hero-metrics{animation-delay:1.5s;}
+  .hero-lead{animation-delay:.7s;}
+  .hero-cta-row{animation-delay:.9s;}
+  .hero-metrics{animation-delay:1.1s;}
   @keyframes fadeUp{to{opacity:1;transform:none;}}
 
   /* Metric hover */
@@ -110,12 +100,12 @@
     transform-style:preserve-3d;
   }
   .pcb-frame{transform-style:preserve-3d;transition:box-shadow .4s;}
-  .pcb-frame:hover{box-shadow:0 40px 100px -20px rgba(70,227,196,.25),inset 0 1px 0 rgba(255,255,255,.05);}
+  .pcb-frame:hover{box-shadow:0 40px 100px -20px rgba(209,122,63,.25),inset 0 1px 0 rgba(255,255,255,.05);}
   .hud{transition:transform .3s,color .3s;transform:translateZ(30px);}
-  .hud:hover{transform:translateZ(40px) scale(1.06);color:var(--accent);border-color:rgba(70,227,196,.4);}
+  .hud:hover{transform:translateZ(40px) scale(1.06);color:var(--accent);border-color:rgba(209,122,63,.4);}
   .pcb-frame::after{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(circle 200px at var(--mx,50%) var(--my,50%), rgba(70,227,196,.18), transparent 60%);
+    background:radial-gradient(circle 200px at var(--mx,50%) var(--my,50%), rgba(209,122,63,.18), transparent 60%);
     opacity:0;transition:opacity .3s;
   }
   .pcb-frame:hover::after{opacity:1;}
@@ -170,26 +160,26 @@
 
   /* brand mark spin on hover */
   .brand-mark{transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .3s;}
-  .brand:hover .brand-mark{transform:rotate(360deg) scale(1.08);box-shadow:0 0 32px rgba(70,227,196,.5);}
+  .brand:hover .brand-mark{transform:rotate(360deg) scale(1.08);box-shadow:0 0 32px rgba(209,122,63,.5);}
 
   /* ============ SERVICE CARDS ============ */
   .svc{transform-style:preserve-3d;contain:layout style;}
   .svc-icon{transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;}
-  .svc:hover .svc-icon{transform:rotate(-8deg) scale(1.1);background:var(--accent);color:#03120e;}
+  .svc:hover .svc-icon{transform:rotate(-8deg) scale(1.1);background:var(--accent);color:#1a0804;}
   .svc::after{
     content:"";position:absolute;inset:0;border-radius:16px;pointer-events:none;
-    background:radial-gradient(circle 200px at var(--mx,50%) var(--my,50%),rgba(70,227,196,.18),transparent 60%);
+    background:radial-gradient(circle 200px at var(--mx,50%) var(--my,50%),rgba(209,122,63,.18),transparent 60%);
     opacity:0;transition:opacity .3s;
   }
   .svc:hover::after{opacity:1;}
   .svc-tag{transition:background .2s,color .2s,border-color .2s,transform .2s;}
-  .svc-tag:hover{background:var(--accent-soft);color:var(--accent);border-color:rgba(70,227,196,.35);transform:translateY(-1px);}
+  .svc-tag:hover{background:var(--accent-soft);color:var(--accent);border-color:rgba(209,122,63,.35);transform:translateY(-1px);}
 
   /* ============ INDUSTRY CARDS ============ */
   .ind{overflow:hidden;}
   .ind::before{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(70,227,196,.08),rgba(56,189,248,.05));
+    background:linear-gradient(135deg,rgba(209,122,63,.08),rgba(244,182,120,.05));
     opacity:0;transition:opacity .3s;
   }
   .ind:hover::before{opacity:1;}
@@ -207,10 +197,10 @@
 
   /* ============ SPEC TABLE live ticking ============ */
   .spec-row{transition:background .2s;border-radius:4px;padding:8px 8px;margin:0 -8px;}
-  .spec-row:hover{background:rgba(70,227,196,.05);}
+  .spec-row:hover{background:rgba(209,122,63,.05);}
   .spec-row.flash{animation:specFlash 1.2s ease;}
   @keyframes specFlash{
-    0%{background:rgba(70,227,196,.25);}
+    0%{background:rgba(209,122,63,.25);}
     100%{background:transparent;}
   }
 
@@ -218,7 +208,7 @@
   .spec-table{position:relative;overflow:hidden;}
   .spec-table::after{
     content:"";position:absolute;left:0;right:0;height:40px;
-    background:linear-gradient(180deg,transparent,rgba(70,227,196,.08),transparent);
+    background:linear-gradient(180deg,transparent,rgba(209,122,63,.08),transparent);
     animation:scan 3s linear infinite;top:0;pointer-events:none;
   }
   @keyframes scan{0%{top:-40px;}100%{top:100%;}}
@@ -245,8 +235,8 @@
   .stats-band::after{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(90deg,transparent 49%,rgba(70,227,196,.08) 50%,transparent 51%),
-      linear-gradient(90deg,transparent 49%,rgba(56,189,248,.08) 50%,transparent 51%);
+      linear-gradient(90deg,transparent 49%,rgba(209,122,63,.08) 50%,transparent 51%),
+      linear-gradient(90deg,transparent 49%,rgba(244,182,120,.08) 50%,transparent 51%);
     background-size:200px 100%,300px 100%;
     background-repeat:repeat-x;
     animation:streamLines 8s linear infinite;
@@ -257,7 +247,7 @@
   /* ============ CAPABILITY CHECKS ============ */
   .cap-item{transition:transform .3s;}
   .cap-item:hover{transform:translateX(8px);}
-  .cap-item:hover .cap-check{background:var(--accent);color:#03120e;transform:scale(1.15) rotate(-10deg);}
+  .cap-item:hover .cap-check{background:var(--accent);color:#1a0804;transform:scale(1.15) rotate(-10deg);}
   .cap-check{transition:all .4s cubic-bezier(.2,.8,.2,1);}
 
   /* ============ FOOTER ============ */
@@ -270,12 +260,12 @@
   .footer-col a:hover::before{opacity:1;left:0;}
 
   /* ============ MASTER FLOW DIAGRAM (new) ============ */
-  .flow-section{padding:120px 32px;position:relative;}
+  .flow-section{padding:52px 32px;position:relative;}
   .flow-stage{
     position:relative;margin-top:48px;
     padding:48px 32px;border-radius:20px;
     background:
-      radial-gradient(ellipse at 50% 0%,rgba(70,227,196,.08),transparent 60%),
+      radial-gradient(ellipse at 50% 0%,rgba(209,122,63,.08),transparent 60%),
       linear-gradient(145deg,var(--panel),var(--panel-2));
     border:1px solid var(--border);
     overflow:hidden;
@@ -288,10 +278,10 @@
     font-family:'JetBrains Mono',monospace;letter-spacing:.04em;
   }
   .flow-tab:hover{border-color:#2a3a55;color:var(--text);}
-  .flow-tab.active{background:var(--accent);color:#03120e;border-color:var(--accent);box-shadow:0 6px 20px rgba(70,227,196,.3);}
+  .flow-tab.active{background:var(--accent);color:#1a0804;border-color:var(--accent);box-shadow:0 6px 20px rgba(209,122,63,.3);}
   .flow-info{
     min-height:52px;padding:14px 20px;margin-bottom:24px;
-    background:rgba(70,227,196,.05);border:1px solid rgba(70,227,196,.18);
+    background:rgba(209,122,63,.05);border:1px solid rgba(209,122,63,.18);
     border-radius:12px;text-align:center;font-size:.9rem;color:var(--accent);
     display:flex;align-items:center;justify-content:center;gap:12px;
     transition:all .4s;
@@ -307,12 +297,12 @@
     background:rgba(8,13,23,.6);
   }
   .flow-node:hover{transform:translateY(-4px);}
-  .flow-node.active{box-shadow:0 0 0 4px rgba(70,227,196,.15),0 10px 30px rgba(70,227,196,.25);transform:translateY(-4px) scale(1.05);}
+  .flow-node.active{box-shadow:0 0 0 4px rgba(209,122,63,.15),0 10px 30px rgba(209,122,63,.25);transform:translateY(-4px) scale(1.05);}
   .flow-node.done{opacity:.55;}
   .fn-num{
     position:absolute;top:-10px;left:50%;transform:translateX(-50%);
     width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
-    font-size:.65rem;font-weight:800;color:#03120e;
+    font-size:.65rem;font-weight:800;color:#1a0804;
     font-family:'JetBrains Mono',monospace;
   }
   .fn-icon{width:32px;height:32px;margin-bottom:6px;}
@@ -327,13 +317,13 @@
     display:inline-flex;align-items:center;gap:8px;transition:all .25s;
   }
   .flow-play-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .flow-play-btn.primary{background:var(--accent);color:#03120e;border-color:var(--accent);}
-  .flow-play-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(70,227,196,.3);}
+  .flow-play-btn.primary{background:var(--accent);color:#1a0804;border-color:var(--accent);}
+  .flow-play-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(209,122,63,.3);}
   /* node color variants */
-  .fn-cyan{border-color:rgba(56,189,248,.35);color:#7dd3fc;}
-  .fn-cyan .fn-num{background:#38bdf8;}
-  .fn-emerald{border-color:rgba(70,227,196,.35);color:#86efac;}
-  .fn-emerald .fn-num{background:#46e3c4;}
+  .fn-cyan{border-color:rgba(244,182,120,.35);color:#7dd3fc;}
+  .fn-cyan .fn-num{background:#F4B678;}
+  .fn-emerald{border-color:rgba(209,122,63,.35);color:#86efac;}
+  .fn-emerald .fn-num{background:#D17A3F;}
   .fn-amber{border-color:rgba(255,184,77,.35);color:#fcd34d;}
   .fn-amber .fn-num{background:#ffb84d;}
   .fn-violet{border-color:rgba(167,139,250,.35);color:#c4b5fd;}
@@ -364,7 +354,7 @@
 
   /* ============ FORM interaction ============ */
   .form-in{position:relative;}
-  .form-in:focus{box-shadow:0 0 0 3px rgba(70,227,196,.15);}
+  .form-in:focus{box-shadow:0 0 0 3px rgba(209,122,63,.15);}
 
   /* ============ SECTION KICKER animated line ============ */
   .kicker::before{animation:kickerGrow 1.2s cubic-bezier(.2,.8,.2,1);}
@@ -373,6 +363,49 @@
   /* ============ REDUCED MOTION ============ */
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none !important;transition:none !important;}
+  }
+
+  /* ============ MOBILE PERFORMANCE ============ */
+  @media(max-width:720px){
+    /* Glitch clip-path is GPU-heavy — remove on mobile */
+    .glitch::before,.glitch::after{animation:none;opacity:0;}
+
+    /* offset-path blips are compositing-heavy */
+    .blip{display:none;}
+
+    /* Stroke-dashoffset draw-in fires 8 simultaneous anims */
+    .trace{stroke-dasharray:none !important;stroke-dashoffset:0 !important;animation:none !important;opacity:.4;}
+
+    /* Scan line causes continuous repaint */
+    .spec-table::after{content:none;}
+
+    /* Shorten entry travel — less distance = smoother on 60hz phones */
+    .hero h1{transform:translateY(12px);}
+    .hero-lead,.hero-cta-row,.hero-metrics{transform:translateY(10px);}
+    .reveal-child{transform:translateY(10px);transition-duration:.5s !important;}
+
+    /* Tighten animation delays — feel snappier on mobile */
+    .hero-lead{animation-delay:.5s;}
+    .hero-cta-row{animation-delay:.65s;}
+    .hero-metrics{animation-delay:.8s;}
+    .reveal{transform:translateY(14px);}
+    .reveal-left{transform:translateX(-20px);}
+    .reveal-right{transform:translateX(20px);}
+    .reveal-scale{transform:scale(.96);}
+    .reveal-blur{filter:blur(4px);}
+    .reveal-group .reveal-child{transform:translateY(10px);transition-duration:.45s !important;}
+    .reveal-group.in .reveal-child:nth-child(n){transition-delay:calc(var(--i,0)*.06s) !important;}
+  }
+
+  @media(max-width:480px){
+    /* Kill bg grid pan — saves a layout repaint every 40s */
+    .bg-wash::after{animation:none;}
+    /* Kill streaming data-line overlay in stats band */
+    .stats-band::after{display:none;}
+    /* Shrink and stop orb drift — large blurred elements hurt mobile compositing */
+    .bg-orb.o1{width:260px;height:260px;animation:none;opacity:.12;}
+    .bg-orb.o2{width:220px;height:220px;animation:none;opacity:.10;}
+    .bg-orb.o3{display:none;}
   }
 </style>
 <style>
@@ -386,15 +419,15 @@
     --text:#e6edf7;
     --muted:#8a97ad;
     --dim:#4a5771;
-    --accent:#46e3c4;
-    --accent-2:#38bdf8;
+    --accent:#D17A3F;
+    --accent-2:#F4B678;
     --accent-3:#ffb84d;
-    --accent-soft:rgba(70,227,196,.14);
-    --trace:#14b895;
-    --grid-line:rgba(70,227,196,.05);
-    --particle:rgba(70,227,196,.6);
-    --particle-link:rgba(70,227,196,.15);
-    --btn-fg:#03120e;
+    --accent-soft:rgba(209,122,63,.14);
+    --trace:#B85E2A;
+    --grid-line:rgba(209,122,63,.05);
+    --particle:rgba(209,122,63,.6);
+    --particle-link:rgba(209,122,63,.15);
+    --btn-fg:#1a0804;
     --chip-fill:#0d1724;
     --chip-stroke:#2a4052;
     --map-filter:invert(.9) hue-rotate(180deg) saturate(.6) brightness(1.1);
@@ -410,14 +443,14 @@
     --text:#0b1628;
     --muted:#5b6a82;
     --dim:#94a2b8;
-    --accent:#0f9d7b;
-    --accent-2:#1e7fd4;
+    --accent:#9E5621;
+    --accent-2:#C17A3D;
     --accent-3:#d97706;
-    --accent-soft:rgba(15,157,123,.12);
-    --trace:#10927a;
-    --grid-line:rgba(15,157,123,.08);
-    --particle:rgba(15,157,123,.55);
-    --particle-link:rgba(15,157,123,.18);
+    --accent-soft:rgba(158,86,33,.12);
+    --trace:#8A4A1A;
+    --grid-line:rgba(158,86,33,.08);
+    --particle:rgba(158,86,33,.55);
+    --particle-link:rgba(158,86,33,.18);
     --btn-fg:#ffffff;
     --chip-fill:#e6ebf3;
     --chip-stroke:#b8c3d4;
@@ -428,6 +461,7 @@
   body{transition:background-color .5s,color .5s;}
 
   *{margin:0;padding:0;box-sizing:border-box;}
+  img{max-width:100%;height:auto;}
   html{scroll-behavior:smooth;font-size:17px;}
   body{
     font-family:'Manrope',system-ui,-apple-system,sans-serif;
@@ -439,7 +473,7 @@
   }
   a{color:inherit;text-decoration:none;}
   button{font-family:inherit;cursor:pointer;}
-  ::selection{background:var(--accent);color:#03120e;}
+  ::selection{background:var(--accent);color:#1a0804;}
 
   /* ========== NAV ========== */
   .nav{
@@ -460,7 +494,7 @@
     width:34px;height:34px;border-radius:8px;
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
     position:relative;display:grid;place-items:center;
-    box-shadow:0 0 24px rgba(70,227,196,.25);
+    box-shadow:0 0 24px rgba(209,122,63,.25);
   }
   .brand-mark svg{width:22px;height:22px;}
   .brand-logo{
@@ -488,13 +522,66 @@
   .nav-links a:hover{color:var(--text);}
   .nav-cta{
     padding:9px 18px;border-radius:8px;
-    background:var(--accent);color:#03120e;
+    background:var(--accent);color:#1a0804;
     font-weight:600;font-size:.85rem;
     transition:transform .2s, box-shadow .2s;
     border:1px solid transparent;
   }
-  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(70,227,196,.28);}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(209,122,63,.28);}
   .menu-btn{display:none;background:none;border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);}
+
+  /* ========== NAV DROPDOWN ========== */
+  .nav-item{position:relative;display:flex;align-items:center;}
+  .nav-item > a{display:flex;align-items:center;gap:4px;}
+  .nav-caret{width:13px;height:13px;flex-shrink:0;color:var(--dim);transition:transform .25s cubic-bezier(.2,.8,.2,1),color .2s;}
+  .nav-item:hover > a .nav-caret{transform:rotate(180deg);color:var(--accent);}
+  .nav-dropdown{
+    position:absolute;top:calc(100% + 16px);left:50%;
+    transform:translateX(-50%) translateY(-8px);
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:6px;min-width:272px;
+    box-shadow:0 20px 48px -10px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);
+    opacity:0;pointer-events:none;
+    transition:opacity .2s cubic-bezier(.2,.8,.2,1),transform .2s cubic-bezier(.2,.8,.2,1);
+    z-index:200;
+  }
+  .nav-item:hover .nav-dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}.nav-dropdown::before{content:"";position:absolute;top:-18px;left:0;right:0;height:18px;}
+  .nav-drop-item{
+    display:flex;align-items:center;gap:12px;
+    padding:9px 10px;border-radius:9px;
+    transition:background .15s,color .15s;color:var(--muted);
+  }
+  .nav-drop-item:hover{background:var(--accent-soft);}
+  .nav-drop-item:hover .ndi-icon{background:var(--accent);color:#1a0804;border-color:var(--accent);}
+  .ndi-icon{
+    width:32px;height:32px;border-radius:8px;flex-shrink:0;
+    background:rgba(255,255,255,.04);border:1px solid var(--border);
+    display:grid;place-items:center;color:var(--accent);
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .ndi-icon svg{width:15px;height:15px;}
+  .ndi-text{display:flex;flex-direction:column;gap:1px;}
+  .ndi-name{font-size:.84rem;font-weight:600;color:var(--text);line-height:1.2;}
+  .ndi-sub{font-size:.69rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.02em;line-height:1.3;}
+  .nav-drop-sep{display:none;}
+  /* mobile dropdown */
+  @media(max-width:720px){
+    .nav-dropdown{
+      position:static;transform:none !important;opacity:1 !important;pointer-events:auto;
+      background:rgba(255,255,255,.03);border:none;border-radius:0;
+      box-shadow:none;min-width:unset;padding:0;
+      display:none;
+    }
+    .nav-item.mob-open .nav-dropdown{display:block;}
+    .nav-item{flex-direction:column;align-items:stretch;}
+    .nav-item > a{justify-content:space-between;padding:13px 24px;}
+    .nav-drop-item{padding:10px 32px;}
+    .ndi-icon{display:none;}
+    .nav-drop-sep{display:none;}
+    .nav-caret{margin-right:0;transition:transform .25s;}
+    .nav-item.mob-open > a .nav-caret{transform:rotate(180deg);}
+  }
+  html[data-theme="light"] .nav-dropdown{box-shadow:0 12px 40px -10px rgba(15,30,60,.18),0 0 0 1px rgba(15,30,60,.05);}
 
   /* ========== HERO ========== */
   .hero{
@@ -513,7 +600,7 @@
     display:inline-flex;align-items:center;gap:10px;
     padding:7px 14px;border-radius:100px;
     background:var(--accent-soft);
-    border:1px solid rgba(70,227,196,.24);
+    border:1px solid rgba(209,122,63,.24);
     font-family:'JetBrains Mono',monospace;
     font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--accent);font-weight:500;
@@ -529,12 +616,10 @@
   }
   .hero h1 em{
     font-style:normal;
-    background:linear-gradient(120deg,var(--accent) 0%,var(--accent-2) 60%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    position:relative;
+    color:var(--accent);
   }
   .hero-lead{
-    font-size:1.12rem;color:var(--muted);max-width:540px;margin-bottom:36px;
+    font-size:1.08rem;color:var(--text);opacity:.82;max-width:560px;margin-bottom:36px;
     font-weight:400;
   }
   .hero-lead em{font-style:normal;font-weight:600;color:var(--text);}
@@ -592,7 +677,7 @@
     transition:all .25s;
   }
   .btn-primary{background:var(--accent);color:#fff;}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(70,227,196,.3);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(209,122,63,.3);}
   .btn-ghost{background:rgba(255,255,255,.03);border-color:var(--border);color:var(--text);}
   .btn-ghost:hover{background:rgba(255,255,255,.06);border-color:#2a3a55;}
   .btn svg{width:16px;height:16px;}
@@ -619,8 +704,8 @@
     position:absolute;inset:0;
     border-radius:22px;
     background:
-      radial-gradient(circle at 30% 20%, rgba(70,227,196,.08), transparent 60%),
-      radial-gradient(circle at 80% 80%, rgba(56,189,248,.07), transparent 55%),
+      radial-gradient(circle at 30% 20%, rgba(209,122,63,.08), transparent 60%),
+      radial-gradient(circle at 80% 80%, rgba(244,182,120,.07), transparent 55%),
       linear-gradient(145deg,#0a1420,#060b14);
     border:1px solid var(--border);
     overflow:hidden;
@@ -629,12 +714,39 @@
   .pcb-frame::before{
     content:"";position:absolute;inset:0;
     background-image:
-      linear-gradient(rgba(70,227,196,.05) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(70,227,196,.05) 1px,transparent 1px);
+      linear-gradient(rgba(209,122,63,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(209,122,63,.05) 1px,transparent 1px);
     background-size:24px 24px;
     mask-image:radial-gradient(circle at center,#000 30%,transparent 80%);
   }
   .pcb-svg{position:absolute;inset:0;width:100%;height:100%;}
+
+  /* HERO BACKGROUND VIDEO */
+  .hero-bg{position:relative;isolation:isolate;contain:layout style;}
+  .hero-bg-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;
+    z-index:0;pointer-events:none;
+    will-change:transform;transform:translateZ(0);
+    backface-visibility:hidden;
+  }
+  .hero-bg-overlay{
+    position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(100deg, rgba(5,9,15,.94) 0%, rgba(5,9,15,.86) 38%, rgba(5,9,15,.62) 70%, rgba(5,9,15,.3) 100%),
+      radial-gradient(ellipse at 80% 40%, rgba(244,182,120,.08), transparent 55%);
+  }
+  html[data-theme="light"] .hero-bg-overlay{
+    background:
+      linear-gradient(100deg, rgba(245,247,251,.96) 0%, rgba(245,247,251,.88) 40%, rgba(245,247,251,.6) 72%, rgba(245,247,251,.28) 100%),
+      radial-gradient(ellipse at 80% 40%, rgba(209,122,63,.08), transparent 55%);
+  }
+  .hero-grid-solo{grid-template-columns:1fr !important;max-width:900px !important;margin-right:auto !important;gap:0 !important;}
+  @media(max-width:720px){
+    .hero-bg-overlay{background:linear-gradient(180deg, rgba(5,9,15,.85) 0%, rgba(5,9,15,.75) 100%);}
+    html[data-theme="light"] .hero-bg-overlay{background:linear-gradient(180deg, rgba(245,247,251,.9) 0%, rgba(245,247,251,.8) 100%);}
+  }
+
   .trace{stroke:var(--trace);stroke-width:1.2;fill:none;opacity:.45;}
   .trace.thick{stroke-width:1.8;opacity:.55;}
   .pad{fill:var(--accent);opacity:.9;}
@@ -673,9 +785,9 @@
   }
   .hud .hud-led{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);}
   .hud.hud-tl{top:20px;left:20px;}
-  .hud.hud-tr{top:20px;right:20px;color:var(--accent);border-color:rgba(70,227,196,.3);}
+  .hud.hud-tr{top:20px;right:20px;color:var(--accent);border-color:rgba(209,122,63,.3);}
   .hud.hud-br{bottom:20px;right:20px;}
-  .hud.hud-bl{bottom:20px;left:20px;color:var(--accent-2);border-color:rgba(56,189,248,.28);}
+  .hud.hud-bl{bottom:20px;left:20px;color:var(--accent-2);border-color:rgba(244,182,120,.28);}
   .hud-val{color:var(--text);font-weight:600;}
 
   /* Bg grid for whole page */
@@ -683,7 +795,7 @@
     position:fixed;inset:0;z-index:0;pointer-events:none;
     background-image:
       radial-gradient(ellipse 80% 50% at 50% -10%, var(--accent-soft), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 30%, rgba(56,189,248,.05), transparent 60%);
+      radial-gradient(ellipse 60% 40% at 90% 30%, rgba(244,182,120,.05), transparent 60%);
   }
   .bg-wash::after{
     content:"";position:absolute;inset:0;
@@ -727,8 +839,8 @@
   /* ========== SECTIONS ========== */
   section{position:relative;z-index:1;}
   .wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
-  .section{padding:120px 32px;position:relative;}
-  .section-head{max-width:720px;margin-bottom:64px;}
+  .section{padding:52px 32px;position:relative;}
+  .section-head{max-width:720px;margin-bottom:36px;}
   .kicker{
     display:inline-block;
     font-family:'JetBrains Mono',monospace;
@@ -750,7 +862,7 @@
   .section-lead{font-size:1.08rem;color:var(--muted);max-width:680px;line-height:1.65;}
 
   /* ========== MARQUEE: partners ========== */
-  .partners{padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2);}
+  .partners{padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-2);}
   .partners-label{
     text-align:center;font-family:'JetBrains Mono',monospace;
     font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
@@ -764,20 +876,27 @@
   }
   @keyframes marquee{to{transform:translateX(-50%);}}
   .partner{
-    display:flex;align-items:center;gap:12px;
+    position:relative;display:flex;align-items:center;
     font-family:'Space Grotesk',sans-serif;
     font-size:1.15rem;font-weight:600;color:var(--muted);
     white-space:nowrap;transition:color .2s;
     letter-spacing:-.01em;
   }
-  .partner:hover{color:var(--text);}
+  .partner-inner{display:flex;align-items:center;gap:12px;transition:opacity .45s ease;}
+  .partner:hover .partner-inner{opacity:0;}
+  .partner-logo-reveal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .65s ease;pointer-events:none;}
+  .partner:hover .partner-logo-reveal{opacity:1;}
+  .p-logo-d{display:block;max-height:44px;max-width:180px;object-fit:contain;}
+  .p-logo-l{display:none;max-height:44px;max-width:180px;object-fit:contain;}
+  html[data-theme="light"] .p-logo-d{display:none;}
+  html[data-theme="light"] .p-logo-l{display:block;}
   .partner-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.6;flex-shrink:0;}
 
   /* ========== ABOUT — creative ========== */
   /* pillars */
   .about-pillars{
     display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
-    margin-bottom:64px;
+    margin-bottom:40px;
   }
   .pillar{
     --mx:50%;--my:50%;
@@ -790,19 +909,19 @@
   /* mouse spotlight */
   .pillar::before{
     content:"";position:absolute;inset:-1px;border-radius:14px;pointer-events:none;z-index:0;
-    background:radial-gradient(220px 180px at var(--mx) var(--my), rgba(70,227,196,.22), transparent 70%);
+    background:radial-gradient(220px 180px at var(--mx) var(--my), rgba(209,122,63,.22), transparent 70%);
     opacity:0;transition:opacity .35s ease;
   }
   /* shimmer sweep */
   .pillar::after{
     content:"";position:absolute;top:0;bottom:0;left:-60%;width:50%;pointer-events:none;z-index:0;
-    background:linear-gradient(110deg, transparent 10%, rgba(70,227,196,.12) 45%, rgba(120,209,255,.08) 55%, transparent 90%);
+    background:linear-gradient(110deg, transparent 10%, rgba(209,122,63,.12) 45%, rgba(120,209,255,.08) 55%, transparent 90%);
     transform:skewX(-18deg);transition:left 0s;
   }
   .pillar:hover{
     transform:translateY(-6px);
-    border-color:rgba(70,227,196,.55);
-    box-shadow:0 20px 40px -28px rgba(70,227,196,.55), 0 0 0 1px rgba(70,227,196,.15) inset;
+    border-color:rgba(209,122,63,.55);
+    box-shadow:0 20px 40px -28px rgba(209,122,63,.55), 0 0 0 1px rgba(209,122,63,.15) inset;
   }
   .pillar:hover::before{opacity:1;}
   .pillar:hover::after{left:160%;transition:left 1.1s cubic-bezier(.2,.8,.2,1);}
@@ -829,6 +948,43 @@
   }
   .pillar:hover .trace::before{transform:translateX(100%);}
 
+  /* pillar image / placeholder media */
+  .pillar-media{
+    position:relative;z-index:1;
+    width:calc(100% + 44px);margin:-26px -22px 22px;
+    aspect-ratio:16/10;overflow:hidden;
+    background:linear-gradient(135deg,#0a1422,#060a12);
+    border-bottom:1px solid var(--border);
+  }
+  .pillar-media::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 55%,rgba(5,9,15,.6) 100%),
+               radial-gradient(ellipse at 70% 20%,rgba(244,182,120,.10),transparent 60%);
+    opacity:.85;transition:opacity .5s;
+  }
+  .pillar:hover .pillar-media::after{opacity:1;}
+  .pillar-img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transform:scale(1.02);transition:transform .9s cubic-bezier(.2,.8,.2,1), filter .6s;
+    filter:saturate(.9);
+  }
+  .pillar:hover .pillar-img{transform:scale(1.12);filter:saturate(1.1);}
+  .pillar-placeholder{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:8px;color:var(--muted);
+    text-align:center;padding:16px;
+    transition:transform .9s cubic-bezier(.2,.8,.2,1);
+  }
+  .pillar:hover .pillar-placeholder{transform:scale(1.06);}
+  .pillar-placeholder svg{width:28px;height:28px;color:var(--accent);opacity:.55;}
+  .pillar-ph-label{
+    font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent);font-weight:600;opacity:.75;
+  }
+  .pillar-ph-sub{
+    font-family:'JetBrains Mono',monospace;font-size:.6rem;opacity:.55;
+  }
+
   .pillar-num{
     font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;
     color:var(--accent);margin-bottom:20px;position:relative;z-index:1;
@@ -843,18 +999,18 @@
   .pillar-icon{
     width:44px;height:44px;border-radius:11px;
     display:grid;place-items:center;color:var(--accent);
-    background:var(--accent-soft);border:1px solid rgba(70,227,196,.2);
+    background:var(--accent-soft);border:1px solid rgba(209,122,63,.2);
     margin-bottom:18px;position:relative;z-index:1;
     transition:transform .5s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s, box-shadow .3s;
   }
   .pillar-icon::before{
-    content:"";position:absolute;inset:-6px;border-radius:14px;border:1px dashed rgba(70,227,196,.35);
+    content:"";position:absolute;inset:-6px;border-radius:14px;border:1px dashed rgba(209,122,63,.35);
     opacity:0;transition:opacity .3s ease, transform .6s ease;
   }
   .pillar-icon svg{width:20px;height:20px;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
   .pillar:hover .pillar-icon{
-    background:rgba(70,227,196,.18);border-color:var(--accent);
-    box-shadow:0 0 0 6px rgba(70,227,196,.06), 0 8px 22px -8px rgba(70,227,196,.6);
+    background:rgba(209,122,63,.18);border-color:var(--accent);
+    box-shadow:0 0 0 6px rgba(209,122,63,.06), 0 8px 22px -8px rgba(209,122,63,.6);
     transform:rotate(-6deg) scale(1.05);
   }
   .pillar:hover .pillar-icon::before{opacity:1;animation:pillarDash 8s linear infinite;}
@@ -873,20 +1029,20 @@
 
   /* quote + timeline grid */
   .about-grid{
-    display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start;
   }
 
   /* Etched quote card */
   .about-quote{
-    position:relative;padding:44px 48px 44px;margin:0;
+    position:relative;padding:30px 36px;margin:0;
     background:linear-gradient(180deg,var(--panel),var(--panel-2));
     border:1px solid var(--border);border-radius:18px;overflow:hidden;
   }
   .about-quote::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(rgba(70,227,196,.04) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(70,227,196,.04) 1px,transparent 1px);
+      linear-gradient(rgba(209,122,63,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(209,122,63,.04) 1px,transparent 1px);
     background-size:28px 28px;
     mask-image:radial-gradient(ellipse at 80% 100%,#000 20%,transparent 70%);
   }
@@ -902,7 +1058,7 @@
   }
   .about-quote-text em{font-style:normal;color:var(--accent);font-weight:600;}
   .quote-meta{
-    position:relative;z-index:1;margin:32px 0;padding:22px 0;
+    position:relative;z-index:1;margin:20px 0;padding:16px 0;
     border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   }
   .quote-meta-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -923,14 +1079,14 @@
   /* Circuit-rail timeline */
   .about-rail{
     position:relative;padding:28px 28px 32px;
-    background:linear-gradient(180deg,rgba(70,227,196,.03),transparent),var(--panel);
+    background:linear-gradient(180deg,rgba(209,122,63,.03),transparent),var(--panel);
     border:1px solid var(--border);border-radius:18px;overflow:hidden;
   }
   .about-rail::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(rgba(70,227,196,.04) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(70,227,196,.04) 1px,transparent 1px);
+      linear-gradient(rgba(209,122,63,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(209,122,63,.04) 1px,transparent 1px);
     background-size:24px 24px;
     mask-image:linear-gradient(180deg,#000,transparent 90%);
   }
@@ -948,7 +1104,7 @@
   }
   .rail::before{
     content:"";position:absolute;left:19px;top:16px;bottom:16px;width:2px;
-    background:linear-gradient(180deg,var(--accent) 0%,var(--accent-2) 50%,rgba(70,227,196,.25) 100%);
+    background:linear-gradient(180deg,var(--accent) 0%,var(--accent-2) 50%,rgba(209,122,63,.25) 100%);
     border-radius:2px;
   }
   .rail::after{
@@ -981,7 +1137,7 @@
   .rail-step:hover .rs-node,
   .rail-step.is-now .rs-node{
     border-color:var(--accent);
-    box-shadow:0 0 0 4px rgba(70,227,196,.12);
+    box-shadow:0 0 0 4px rgba(209,122,63,.12);
   }
   .rail-step:hover .rs-node span,
   .rail-step.is-now .rs-node span{
@@ -1007,10 +1163,16 @@
   .rs-body{font-size:.92rem;color:var(--muted);line-height:1.55;}
 
   @media(max-width:1000px){
+    .about-intro{grid-template-columns:1fr;gap:28px;}
+    .about-pcb-wrap{order:-1;}
+    .about-pcb-img{max-width:260px;margin:0 auto;}
     .about-pillars{grid-template-columns:repeat(2,1fr);}
     .about-grid{grid-template-columns:1fr;gap:28px;}
   }
   @media(max-width:600px){
+    .about-intro{gap:20px;}
+    .about-pcb-wrap{order:1;}  /* PCB below text on phone */
+    .about-pcb-img{max-width:240px;margin:0 auto;}
     .about-pillars{grid-template-columns:1fr;}
     .quote-meta-cols{grid-template-columns:1fr;gap:14px;}
     .about-quote{padding:32px 28px;}
@@ -1033,7 +1195,7 @@
   }
   .svc::before{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(circle at 80% 0%, rgba(70,227,196,.12), transparent 50%);
+    background:radial-gradient(circle at 80% 0%, rgba(209,122,63,.12), transparent 50%);
     opacity:0;transition:opacity .3s;
   }
   .svc:hover{transform:translateY(-4px);border-color:#253a57;}
@@ -1045,7 +1207,7 @@
   }
   .svc-icon{
     width:48px;height:48px;border-radius:12px;
-    background:rgba(70,227,196,.1);border:1px solid rgba(70,227,196,.2);
+    background:rgba(209,122,63,.1);border:1px solid rgba(209,122,63,.2);
     display:grid;place-items:center;margin-bottom:20px;
     color:var(--accent);
   }
@@ -1055,6 +1217,24 @@
     font-size:1.15rem;font-weight:600;margin-bottom:10px;letter-spacing:-.01em;
   }
   .svc p{color:var(--muted);font-size:.98rem;line-height:1.6;margin-bottom:20px;}
+  .svc-img-wrap{
+    position:absolute;inset:0;z-index:0;overflow:hidden;
+    opacity:0;transition:opacity .55s cubic-bezier(.2,.8,.2,1);
+  }
+  .svc:hover .svc-img-wrap{opacity:1;}
+  .svc-img-wrap::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,
+      rgba(7,13,22,.80) 0%,
+      rgba(7,13,22,.55) 45%,
+      rgba(7,13,22,.82) 100%);
+  }
+  .svc-img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transform:scale(1.10) translateY(6px);
+    transition:transform .7s cubic-bezier(.2,.8,.2,1);
+  }
+  .svc:hover .svc-img{transform:scale(1.03) translateY(0);}
   .svc-tags{display:flex;flex-wrap:wrap;gap:6px;}
   .svc-tag{
     font-size:.7rem;font-family:'JetBrains Mono',monospace;
@@ -1064,7 +1244,7 @@
   }
 
   /* ========== CAPABILITIES / two col ========== */
-  .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
   .cap-visual{
     position:relative;aspect-ratio:5/4;border-radius:18px;
     background:linear-gradient(145deg,#0a1420,#060b14);
@@ -1073,8 +1253,8 @@
   .cap-visual::before{
     content:"";position:absolute;inset:0;
     background-image:
-      linear-gradient(rgba(70,227,196,.06) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(70,227,196,.06) 1px,transparent 1px);
+      linear-gradient(rgba(209,122,63,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(209,122,63,.06) 1px,transparent 1px);
     background-size:20px 20px;
     mask-image:radial-gradient(circle at center,#000 40%,transparent 90%);
   }
@@ -1102,7 +1282,7 @@
   }
   .cap-check{
     width:28px;height:28px;border-radius:8px;
-    background:var(--accent-soft);border:1px solid rgba(70,227,196,.28);
+    background:var(--accent-soft);border:1px solid rgba(209,122,63,.28);
     display:grid;place-items:center;color:var(--accent);flex-shrink:0;
   }
   .cap-check svg{width:14px;height:14px;}
@@ -1117,6 +1297,25 @@
     transition:all .3s;position:relative;overflow:hidden;
   }
   .ind:hover{transform:translateY(-3px);border-color:#253a57;}
+  .ind-img-wrap{
+    margin:-28px -22px 18px;height:120px;
+    border-radius:13px 13px 0 0;overflow:hidden;
+    position:relative;
+  }
+  .ind-img-wrap::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 40%,rgba(7,13,22,.45) 100%);
+    pointer-events:none;
+  }
+  .ind-img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.82);
+    transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s;
+  }
+  .ind:hover .ind-img{transform:scale(1.07);filter:saturate(1);}
+  html[data-theme="light"] .ind-img-wrap::after{
+    background:linear-gradient(180deg,transparent 40%,rgba(248,250,253,.5) 100%);
+  }
   .ind-icon{color:var(--accent-2);margin-bottom:14px;}
   .ind-icon svg{width:26px;height:26px;}
   .ind h4{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:6px;}
@@ -1126,11 +1325,11 @@
   .stats-band{
     background:linear-gradient(135deg,#081018,#050810);
     border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-    padding:80px 32px;position:relative;overflow:hidden;
+    padding:52px 32px;position:relative;overflow:hidden;
   }
   .stats-band::before{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(ellipse at top,rgba(70,227,196,.06),transparent 60%);
+    background:radial-gradient(ellipse at top,rgba(209,122,63,.06),transparent 60%);
   }
   .stats-wrap{
     max-width:1280px;margin:0 auto;position:relative;
@@ -1148,7 +1347,7 @@
   .stat-label{font-size:.82rem;color:var(--muted);letter-spacing:.04em;}
 
   /* ========== CONTACT ========== */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
   .contact-card{
     background:var(--panel);border:1px solid var(--border);border-radius:16px;
     padding:32px;
@@ -1190,7 +1389,7 @@
     background:rgba(255,255,255,.025);border:1px solid var(--border);color:var(--text);
     font-family:inherit;font-size:.98rem;transition:border-color .2s, background .2s;
   }
-  .form-in:focus{outline:none;border-color:var(--accent);background:rgba(70,227,196,.04);}
+  .form-in:focus{outline:none;border-color:var(--accent);background:rgba(209,122,63,.04);}
   textarea.form-in{min-height:120px;resize:vertical;}
   select.form-in{
     appearance:none;-webkit-appearance:none;-moz-appearance:none;
@@ -1210,12 +1409,12 @@
   .form-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px;flex-wrap:wrap;}
   .form-note{font-size:.78rem;color:var(--dim);}
   .form-submit{
-    padding:12px 22px;border-radius:10px;background:var(--accent);color:#03120e;
+    padding:12px 22px;border-radius:10px;background:var(--accent);color:#1a0804;
     border:none;font-weight:600;font-size:.9rem;
     transition:transform .2s, box-shadow .2s;
     display:inline-flex;align-items:center;gap:8px;
   }
-  .form-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(70,227,196,.28);}
+  .form-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(209,122,63,.28);}
 
   /* ========== FOOTER ========== */
   .footer{
@@ -1249,7 +1448,7 @@
   .powered a{
     color:var(--accent);font-weight:600;
     transition:color .2s;
-    border-bottom:1px dashed rgba(70,227,196,.3);
+    border-bottom:1px dashed rgba(209,122,63,.3);
     padding-bottom:1px;
   }
   .powered a:hover{color:var(--text);border-color:var(--text);}
@@ -1279,7 +1478,7 @@
       box-shadow:0 12px 40px rgba(0,0,0,.3);z-index:99;
       transition:max-height .35s cubic-bezier(.2,.8,.2,1),padding .35s;
     }
-    .nav-links.open{max-height:360px;padding:8px 0 16px;}
+    .nav-links.open{max-height:calc(100vh - 64px);overflow-y:auto;padding:8px 0 16px;}
     .nav-links a{padding:13px 24px;border-radius:0;font-size:1rem;border-bottom:1px solid var(--border-dim,rgba(255,255,255,.04));}
     .nav-links a:last-child{border-bottom:none;}
     .nav-cta{display:block;margin:12px 16px 4px;text-align:center;}
@@ -1292,23 +1491,53 @@
     .stats-wrap{grid-template-columns:repeat(2,1fr);gap:32px;}
     .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
   }
+  /* ── Services swipe carousel (phones + small tablets) ── */
+  @media(max-width:768px){
+    .svc-carousel-viewport{
+      overflow-x:auto;
+      overflow-y:visible;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      scroll-padding-left:24px;
+      scrollbar-width:none;
+      -webkit-mask-image:none !important;
+      mask-image:none !important;
+      padding:4px 24px 12px;
+      margin:0 -24px;
+    }
+    .svc-carousel-viewport::-webkit-scrollbar{display:none;}
+    .services-grid{
+      display:flex !important;
+      flex-wrap:nowrap !important;
+      gap:14px !important;
+      padding:0 24px 0 0 !important;
+    }
+    .svc{
+      width:82vw !important;
+      max-width:82vw !important;
+      min-width:260px !important;
+      flex-shrink:0 !important;
+      scroll-snap-align:start;
+    }
+    .svc-nav{display:none !important;}
+  }
+
   @media (max-width:720px){
     .nav-links{display:flex;}
     .menu-btn{display:inline-flex;}
     .nav-cta{display:none;}
-    .section{padding:80px 24px;}
-    .hero{padding:120px 24px 60px;}
-    .services-grid{grid-template-columns:1fr;}
+    .section{padding:36px 24px;}
+    .hero{padding:88px 24px 44px;}
     .industries{grid-template-columns:1fr 1fr;}
     .stats-wrap{grid-template-columns:1fr 1fr;}
-    .footer-top{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}
     .hero-metrics{grid-template-columns:1fr 1fr;row-gap:20px;}
     .metric,.metric:nth-child(2),.metric:last-child{padding:0;border:none !important;}
     .wrap{padding:0 24px;}
     .form-row{grid-template-columns:1fr;}
 
     /* ── Flow diagram mobile ── */
-    .flow-section{padding:72px 20px;}
+    .flow-section{padding:36px 20px;}
     .flow-stage{padding:24px 16px;}
     .flow-tabs{
       flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
@@ -1332,37 +1561,41 @@
     }
     .flow-play-row{flex-direction:column;gap:10px;}
     .flow-play-btn{width:100%;justify-content:center;}
+    .section-title,.section-head h2,h2.section-title{font-size:1.55rem;line-height:1.22;}
   }
   @media(max-width:480px){
-    /* ── Base font: shrinks all rem values by ~12% ── */
-    html{font-size:15px;}
+    /* ── Base font ── */
+    html{font-size:15.5px;}
+
+    /* ── Nav ── */
+    .nav-inner{padding:12px 16px;}
 
     /* ── Spacing ── */
-    .section{padding:40px 16px;}
-    .hero{padding:80px 16px 32px;min-height:auto;}
-    .cta-band{padding:40px 16px;}
-    .footer{padding:40px 16px 24px;}
-    .section-head{margin-bottom:24px;}
-    .flow-section{padding:40px 16px;}
+    .section{padding:24px 16px;}
+    .hero{padding:64px 16px 28px;min-height:auto;}
+    .cta-band{padding:32px 16px;}
+    .footer{padding:32px 16px 20px;}
+    .section-head{margin-bottom:22px;}
+    .flow-section{padding:24px 16px;}
     .flow-stage{margin-top:16px;padding:18px 14px;}
     .wrap{padding:0 16px;}
 
     /* ── Typography ── */
-    .hero h1{font-size:1.75rem;line-height:1.08;margin-bottom:12px;}
-    .hero-eyebrow{font-size:.6rem;margin-bottom:12px;padding:5px 10px;}
-    .hero-lead{font-size:.88rem;max-width:100%;margin-bottom:20px;}
-    .section-title,.section-head h2{font-size:1.3rem;}
-    .section-lead{font-size:.86rem;line-height:1.55;}
-    .kicker{font-size:.6rem;margin-bottom:10px;}
+    .hero h1{font-size:2rem;line-height:1.1;letter-spacing:-.022em;margin-bottom:14px;}
+    .hero-eyebrow{font-size:.62rem;margin-bottom:14px;padding:5px 11px;}
+    .hero-lead{font-size:.92rem;line-height:1.6;max-width:100%;margin-bottom:22px;}
+    .section-title,.section-head h2{font-size:1.35rem;line-height:1.25;letter-spacing:-.015em;}
+    .section-lead{font-size:.88rem;line-height:1.58;}
+    .kicker{font-size:.62rem;margin-bottom:10px;}
 
     /* ── Hero ── */
     .hero-visual{display:none;}
-    .hero-cta-row{flex-direction:column;align-items:stretch;gap:8px;margin-bottom:20px;}
-    .hero-cta-row .btn{text-align:center;justify-content:center;width:100%;padding:11px 18px;}
+    .hero-cta-row{flex-direction:column;align-items:stretch;gap:8px;margin-bottom:22px;}
+    .hero-cta-row .btn{text-align:center;justify-content:center;width:100%;padding:12px 18px;font-size:.9rem;}
     .hero-metrics{grid-template-columns:repeat(3,1fr);gap:0;padding-top:18px;}
     .metric,.metric:nth-child(2),.metric:last-child{padding:0;border:none !important;}
-    .metric-n{font-size:1.4rem;}
-    .metric-l{font-size:.62rem;}
+    .metric-n{font-size:1.5rem;}
+    .metric-l{font-size:.64rem;line-height:1.4;}
 
     /* ── Grids ── */
     .services-grid{grid-template-columns:1fr;}
@@ -1372,18 +1605,26 @@
     /* ── Cards & components ── */
     .svc{padding:18px 16px;}
     .svc-icon{width:38px;height:38px;}
+    .svc h3{font-size:.95rem;}
+    .svc p{font-size:.84rem;}
     .pillar{padding:18px 14px;}
     .about-quote{padding:22px 18px;}
     .cap-item{gap:10px;padding:10px 0;}
+    .cap-item span{font-size:.88rem;}
     .flow-node{padding:12px 14px;gap:10px;}
     .fn-icon{width:24px;height:24px;}
     .fn-name{font-size:.82rem;}
 
+    /* ── Stat numbers ── */
+    .stat-num{font-size:2rem;}
+    .stat-label{font-size:.78rem;}
+
     /* ── Hide heavy desktop-only sections ── */
-    .rs-track{display:none;}  /* roadmap timeline — too tall for mobile */
+    .rs-track{display:none;}
     .about-pillars .pillar-trace{display:none;}
     .footer-top{gap:20px;}
     .footer .brand-logo{height:32px;}
+    .footer-bottom{flex-direction:column;text-align:center;gap:8px;}
   }
 
   /* ============================================================
@@ -1404,7 +1645,7 @@
   html[data-theme="light"] .bg-orb.o3{opacity:.08;}
 
   /* Hero copy */
-  html[data-theme="light"] .hero-eyebrow{background:rgba(15,157,123,.08);border-color:rgba(15,157,123,.25);color:var(--accent);}
+  html[data-theme="light"] .hero-eyebrow{background:rgba(158,86,33,.08);border-color:rgba(158,86,33,.25);color:var(--accent);}
   html[data-theme="light"] .btn-ghost{background:rgba(15,30,60,.04);color:var(--text);}
   html[data-theme="light"] .btn-ghost:hover{background:rgba(15,30,60,.08);border-color:#b8c3d4;}
 
@@ -1415,8 +1656,8 @@
   }
   html[data-theme="light"] .pcb-frame::before{
     background-image:
-      linear-gradient(rgba(15,157,123,.10) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(15,157,123,.10) 1px,transparent 1px);
+      linear-gradient(rgba(158,86,33,.10) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(158,86,33,.10) 1px,transparent 1px);
   }
   html[data-theme="light"] .chip{fill:#e6ebf3;stroke:#a7b4c7;}
   html[data-theme="light"] .chip-label{fill:#5b6a82;}
@@ -1425,7 +1666,7 @@
   html[data-theme="light"] .pad{fill:var(--accent);}
   html[data-theme="light"] .pad-ring{stroke:var(--accent);}
   html[data-theme="light"] .hud{background:rgba(255,255,255,.9);border-color:#d9e0ec;color:#5b6a82;box-shadow:0 4px 12px -6px rgba(15,30,60,.15);}
-  html[data-theme="light"] .hud.hud-tr{color:var(--accent);border-color:rgba(15,157,123,.35);}
+  html[data-theme="light"] .hud.hud-tr{color:var(--accent);border-color:rgba(158,86,33,.35);}
   html[data-theme="light"] .hud.hud-bl{color:var(--accent-2);border-color:rgba(30,127,212,.35);}
   html[data-theme="light"] .hud-val{color:var(--text);}
 
@@ -1441,8 +1682,17 @@
     background:var(--panel);
     box-shadow:0 2px 20px -10px rgba(15,30,60,.1);
   }
-  html[data-theme="light"] .svc-icon{background:var(--accent-soft);border-color:rgba(15,157,123,.28);}
+  html[data-theme="light"] .svc-icon{background:var(--accent-soft);border-color:rgba(158,86,33,.28);}
   html[data-theme="light"] .svc-tag{background:#f0f3f8;color:var(--muted);}
+  html[data-theme="light"] .svc-img-wrap::after{
+    background:linear-gradient(180deg,
+      rgba(248,250,253,.88) 0%,
+      rgba(248,250,253,.72) 45%,
+      rgba(248,250,253,.90) 100%);
+  }
+  html[data-theme="light"] .svc:hover h3,
+  html[data-theme="light"] .svc:hover p{color:var(--text);}
+  html[data-theme="light"] .svc:hover .svc-tag{background:#f0f3f8;color:var(--muted);border-color:var(--border);}
 
   /* Capabilities visual — light blueprint */
   html[data-theme="light"] .cap-visual{
@@ -1450,38 +1700,38 @@
   }
   html[data-theme="light"] .cap-visual::before{
     background-image:
-      linear-gradient(rgba(15,157,123,.12) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(15,157,123,.12) 1px,transparent 1px);
+      linear-gradient(rgba(158,86,33,.12) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(158,86,33,.12) 1px,transparent 1px);
   }
   html[data-theme="light"] .spec-table{
     background:rgba(255,255,255,.94);
     box-shadow:0 10px 30px -12px rgba(15,30,60,.18);
   }
-  html[data-theme="light"] .cap-check{background:var(--accent-soft);border-color:rgba(15,157,123,.28);}
+  html[data-theme="light"] .cap-check{background:var(--accent-soft);border-color:rgba(158,86,33,.28);}
 
   /* Stats band */
   html[data-theme="light"] .stats-band{
     background:linear-gradient(135deg,#edf2f8,#e4ebf4);
   }
   html[data-theme="light"] .stats-band::before{
-    background:radial-gradient(ellipse at top,rgba(15,157,123,.10),transparent 60%);
+    background:radial-gradient(ellipse at top,rgba(158,86,33,.10),transparent 60%);
   }
 
   /* Flow / sequence cards */
   html[data-theme="light"] .flow-stage{background:var(--panel);box-shadow:0 2px 20px -10px rgba(15,30,60,.12);}
   html[data-theme="light"] .flow-node{background:#fbfcfe;}
   html[data-theme="light"] .flow-tab{background:#f0f3f8;color:var(--muted);}
-  html[data-theme="light"] .flow-tab.active{background:var(--accent-soft);color:var(--accent);border-color:rgba(15,157,123,.35);}
+  html[data-theme="light"] .flow-tab.active{background:var(--accent-soft);color:var(--accent);border-color:rgba(158,86,33,.35);}
   html[data-theme="light"] .flow-play-btn{background:#f5f7fb;color:var(--text);}
   html[data-theme="light"] .flow-play-btn:hover{background:#eaf0f8;}
-  html[data-theme="light"] .flow-info{background:rgba(15,157,123,.07);border-color:rgba(15,157,123,.22);}
+  html[data-theme="light"] .flow-info{background:rgba(158,86,33,.07);border-color:rgba(158,86,33,.22);}
   html[data-theme="light"] .flow-info .fi-step{color:var(--accent);}
 
   /* Flow node color variants — darker text on light bg */
-  html[data-theme="light"] .fn-cyan{border-color:rgba(30,127,212,.4);color:#1e7fd4;}
-  html[data-theme="light"] .fn-cyan .fn-num{background:#1e7fd4;color:#fff;}
-  html[data-theme="light"] .fn-emerald{border-color:rgba(15,157,123,.4);color:#0f9d7b;}
-  html[data-theme="light"] .fn-emerald .fn-num{background:#0f9d7b;color:#fff;}
+  html[data-theme="light"] .fn-cyan{border-color:rgba(30,127,212,.4);color:#C17A3D;}
+  html[data-theme="light"] .fn-cyan .fn-num{background:#C17A3D;color:#fff;}
+  html[data-theme="light"] .fn-emerald{border-color:rgba(158,86,33,.4);color:#9E5621;}
+  html[data-theme="light"] .fn-emerald .fn-num{background:#9E5621;color:#fff;}
   html[data-theme="light"] .fn-amber{border-color:rgba(217,119,6,.4);color:#b45309;}
   html[data-theme="light"] .fn-amber .fn-num{background:#d97706;color:#fff;}
   html[data-theme="light"] .fn-violet{border-color:rgba(124,58,237,.4);color:#6d28d9;}
@@ -1505,6 +1755,11 @@
   }
   html[data-theme="light"] .form-submit{color:#fff;}
   html[data-theme="light"] .nav-cta{color:#fff;}
+  html[data-theme="light"] .svc:hover .svc-icon,
+  html[data-theme="light"] .cap-item:hover .cap-check,
+  html[data-theme="light"] .flow-tab.active,
+  html[data-theme="light"] .flow-play-btn.primary,
+  html[data-theme="light"] .nav-drop-item:hover .ndi-icon{color:#fff;}
 
   /* Footer */
   html[data-theme="light"] .footer{background:linear-gradient(180deg,#eef2f8,#e4ebf4);}
@@ -1522,6 +1777,384 @@
 
   /* Section title accent */
   html[data-theme="light"] .about-lead-title em{color:var(--accent);}
+
+
+  /* --- About intro two-column + floating PCB --- */
+  .about-intro{
+    display:grid;
+    grid-template-columns:1fr 520px;
+    gap:44px;
+    align-items:center;
+    margin-bottom:44px;
+  }
+  .about-pcb-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Mobile overrides placed HERE (after base) so cascade wins */
+  @media(max-width:1000px){
+    .about-intro{grid-template-columns:1fr !important;gap:28px;}
+    .about-pcb-wrap{order:-1;width:100%;}
+    .about-pcb-img{max-width:260px;margin:0 auto;}
+  }
+  @media(max-width:768px){
+    .about-intro{gap:20px;}
+    .about-pcb-wrap{order:1 !important;width:100%;}
+    .about-pcb-img{max-width:220px;margin:0 auto;}
+    .about-pcb-float{animation:none;}
+  }
+  @keyframes pcb-float{
+    0%   {transform:translateY(0px)    rotate(-.2deg);}
+    18%  {transform:translateY(-7px)   rotate(.1deg);}
+    40%  {transform:translateY(-16px)  rotate(.4deg);}
+    65%  {transform:translateY(-10px)  rotate(-.1deg);}
+    82%  {transform:translateY(-4px)   rotate(-.3deg);}
+    100% {transform:translateY(0px)    rotate(-.2deg);}
+  }
+  .about-pcb-float{
+    position:relative;
+    display:inline-block;
+    animation:pcb-float 8s ease-in-out infinite;
+    cursor:pointer;
+    will-change:transform;
+  }
+  .about-pcb-float.is-hovered{
+    animation-play-state:paused;
+  }
+  .about-pcb-img{
+    display:block;
+    width:100%;
+    max-width:500px;
+    border-radius:10px;
+    mix-blend-mode:screen;
+    filter:drop-shadow(0 12px 40px rgba(0,200,120,.18)) brightness(1.05) saturate(1.1);
+    transition:filter .5s cubic-bezier(.2,.8,.2,1);
+    transform-origin:center center;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .about-pcb-float.is-hovered .about-pcb-img{
+    filter:drop-shadow(0 0 18px rgba(0,255,160,.35)) drop-shadow(0 0 44px rgba(0,200,120,.18)) brightness(1.07) saturate(1.12);
+  }
+  html[data-theme="light"] .about-pcb-img{
+    mix-blend-mode:normal;
+    filter:drop-shadow(0 8px 32px rgba(0,0,0,.22)) brightness(1.0) saturate(1.0);
+    border-radius:10px;
+  }
+  html[data-theme="light"] .about-pcb-float.is-hovered .about-pcb-img{
+    filter:drop-shadow(0 4px 24px rgba(0,140,80,.4)) drop-shadow(0 0 50px rgba(0,180,100,.2)) brightness(1.05);
+  }
+  .pcb-ui-overlay{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .4s ease .06s;
+  }
+  .about-pcb-float.is-hovered .pcb-ui-overlay{opacity:1;}
+  .pcb-line-svg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:visible;
+  }
+  /* draw-in animation lines */
+  .pcb-line-draw{
+    fill:none;
+    stroke-linecap:square;
+    stroke-linejoin:miter;
+    stroke-dasharray:400;
+    stroke-dashoffset:400;
+    transition:stroke-dashoffset 1.5s cubic-bezier(.6,0,.4,1);
+  }
+  .about-pcb-float.is-hovered .pcb-line-draw{stroke-dashoffset:0;}
+  .pcb-dot{
+    opacity:0;
+    transition:opacity .4s ease;
+  }
+  .about-pcb-float.is-hovered .pcb-dot{opacity:1;}
+  /* component UI badges — copper trace style */
+  .pcb-ctag{
+    position:absolute;
+    pointer-events:none;
+  }
+  .pcb-ctag-inner{
+    background:rgba(7,13,22,.62);
+    border:1px solid rgba(196,120,10,.38);
+    border-radius:5px;
+    padding:5px 9px 6px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    box-shadow:0 0 8px rgba(196,120,10,.18), inset 0 0 4px rgba(196,120,10,.04);
+  }
+  .pcb-ctag-label{
+    font-size:.53rem;
+    font-weight:700;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:#d4890e;
+    line-height:1.3;
+  }
+  .pcb-ctag-sub{
+    font-size:.6rem;
+    color:rgba(255,255,255,.42);
+    line-height:1.3;
+    white-space:nowrap;
+  }
+  html[data-theme="light"] .pcb-ctag-inner{
+    background:rgba(255,252,245,.9);
+    border-color:rgba(160,88,0,.35);
+    box-shadow:0 0 10px rgba(160,88,0,.15);
+  }
+  html[data-theme="light"] .pcb-ctag-label{color:#a05500;}
+  html[data-theme="light"] .pcb-ctag-sub{color:rgba(0,0,0,.45);}
+  .pcb-info-card{
+    position:absolute;
+    bottom:-58px;
+    left:3%;
+    background:rgba(7,13,22,.86);
+    border:1px solid rgba(212,137,14,.32);
+    border-radius:9px;
+    padding:10px 14px 12px;
+    min-width:172px;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 4px 28px rgba(212,137,14,.14),0 0 0 1px rgba(212,137,14,.05);
+  }
+  .pcb-info-tag{
+    font-size:.58rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:7px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .pcb-info-tag::before{
+    content:"";
+    display:inline-block;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 7px var(--accent);
+    flex-shrink:0;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .pcb-info-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    font-size:.68rem;
+    color:rgba(255,255,255,.4);
+    padding:3.5px 0;
+    border-top:1px solid rgba(255,255,255,.05);
+  }
+  .pcb-info-val{
+    color:rgba(255,255,255,.82);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  html[data-theme="light"] .pcb-info-card{
+    background:rgba(255,252,245,.92);
+    border-color:rgba(160,88,0,.28);
+    box-shadow:0 4px 28px rgba(160,88,0,.12);
+  }
+  html[data-theme="light"] .pcb-info-row{color:rgba(0,0,0,.4);border-color:rgba(0,0,0,.07);}
+  html[data-theme="light"] .pcb-info-val{color:rgba(0,0,0,.78);}
+
+  /* ── Services Carousel ── */
+  .svc-carousel-wrap{position:relative;}
+  .svc-carousel-viewport{
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 72px,#000 calc(100% - 72px),transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 72px,#000 calc(100% - 72px),transparent 100%);
+  }
+  .services-grid{
+    display:flex !important;
+    gap:20px;
+    will-change:transform;
+    align-items:stretch;
+  }
+  .svc{flex-shrink:0;/* width set by JS */}
+  .svc-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:28px;
+  }
+  .svc-arrow{
+    width:40px;height:40px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+    color:var(--fg);
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s,transform .2s;
+    flex-shrink:0;
+  }
+  .svc-arrow:hover{background:var(--accent-soft);border-color:var(--accent);transform:scale(1.08);}
+  .svc-arrow:disabled{opacity:.28;cursor:not-allowed;transform:none;}
+  .svc-dots{display:flex;gap:7px;}
+  .svc-dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    border:none;cursor:pointer;
+    transition:background .2s,transform .2s;padding:0;
+  }
+  .svc-dot.active{background:var(--accent);transform:scale(1.25);}
+  html[data-theme="light"] .svc-arrow{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.04);}
+  html[data-theme="light"] .svc-dot{background:rgba(0,0,0,.15);}
+  html[data-theme="light"] .svc-dot.active{background:var(--accent);}
+
+  /* ── Contact card motion interactions ── */
+  @property --ca{syntax:'<angle>';initial-value:0deg;inherits:false;}
+  @keyframes spinCA{to{--ca:360deg;}}
+  @keyframes caGlow{
+    0%,100%{box-shadow:0 4px 32px -8px rgba(209,122,63,.08),0 0 0 1px rgba(209,122,63,.14);}
+    50%   {box-shadow:0 8px 48px -4px rgba(209,122,63,.22),0 0 0 1px rgba(209,122,63,.5);}
+  }
+  @keyframes subPulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(209,122,63,.0),0 4px 16px rgba(209,122,63,.18);}
+    60%   {box-shadow:0 0 0 7px rgba(209,122,63,.0),0 6px 24px rgba(209,122,63,.3);}
+  }
+  .contact-card{
+    --mx:50%;--my:50%;
+    position:relative;
+    contain:layout style;
+    transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;
+  }
+  /* cursor-tracked warm spotlight */
+  .contact-card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+    background:radial-gradient(circle 240px at var(--mx) var(--my),rgba(209,122,63,.13),rgba(244,182,120,.06) 55%,transparent 75%);
+    opacity:0;transition:opacity .35s;
+  }
+  .contact-card:hover::before{opacity:1;}
+  /* spinning conic border on hover */
+  .contact-card:hover{
+    border-color:transparent;
+    background:
+      linear-gradient(var(--panel),var(--panel)) padding-box,
+      conic-gradient(from var(--ca),rgba(209,122,63,.85) 0deg,var(--accent-2) 80deg,rgba(209,122,63,.55) 150deg,transparent 210deg,rgba(209,122,63,.4) 290deg,transparent 330deg) border-box;
+    animation:spinCA 3s linear infinite,caGlow 2.4s ease-in-out infinite;
+  }
+  .contact-card > *{position:relative;z-index:1;}
+  /* row hover: icon bounce + label accent + slide */
+  .c-row{
+    transition:padding-left .25s cubic-bezier(.2,.8,.2,1),background .25s;
+    overflow:hidden;
+  }
+  .c-row:hover{background:rgba(209,122,63,.055);padding-left:8px;}
+  .c-row:hover .c-row-label{color:var(--accent);transition:color .2s;}
+  .c-row-label{transition:color .2s;}
+  .c-row svg{transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s;}
+  .c-row:hover svg{
+    transform:scale(1.22) rotate(-8deg);
+    filter:drop-shadow(0 0 6px rgba(209,122,63,.75));
+  }
+  /* form input glow focus */
+  .form-in:focus{
+    border-color:var(--accent);
+    background:rgba(209,122,63,.04);
+    box-shadow:0 0 0 3px rgba(209,122,63,.13);
+  }
+  /* submit button subtle pulse at rest */
+  .form-submit{animation:subPulse 2.8s ease-in-out infinite;}
+  .form-submit:hover{animation:none;transform:translateY(-2px);box-shadow:0 10px 32px rgba(209,122,63,.38);}
+  @media(hover:none){
+    .contact-card:hover{animation:none;border-color:var(--border);background:var(--panel);}
+    .c-row:hover{background:none;padding-left:0;}
+    .form-submit{animation:none;}
+  }
+
+  /* ============ FLOATING CONTACT PANEL ============ */
+  .fc-wrap{
+    position:fixed;right:20px;bottom:88px;z-index:90;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .fc-body{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:32px;
+    display:flex;flex-direction:column;align-items:center;
+    padding:6px 0;gap:2px;
+    box-shadow:0 8px 40px rgba(0,0,0,.35),0 2px 8px rgba(0,0,0,.2);
+    max-height:260px;overflow:hidden;
+    transition:max-height .42s cubic-bezier(.2,.8,.2,1),
+               padding .42s cubic-bezier(.2,.8,.2,1),
+               opacity .32s,
+               transform .42s cubic-bezier(.2,.8,.2,1);
+    transform-origin:bottom center;
+  }
+  .fc-wrap.fc-closed .fc-body{
+    max-height:0;padding:0;opacity:0;transform:scaleY(.85) translateY(8px);pointer-events:none;
+  }
+  .fc-sep{width:28px;height:1px;background:var(--border);margin:4px 0;flex-shrink:0;}
+  .fc-btn{
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);border-radius:50%;
+    transition:color .22s,background .22s,transform .22s;
+    position:relative;flex-shrink:0;
+  }
+  .fc-btn svg{width:20px;height:20px;}
+  .fc-btn:hover{color:var(--accent);background:var(--accent-soft);transform:scale(1.08);}
+  /* tooltip label */
+  .fc-btn::before{
+    content:attr(data-tip);
+    position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(6px);
+    background:var(--panel);border:1px solid var(--border);
+    color:var(--text);font-size:.7rem;font-weight:600;letter-spacing:.02em;
+    padding:4px 10px;border-radius:8px;white-space:nowrap;
+    opacity:0;pointer-events:none;
+    transition:opacity .18s,transform .18s;
+    box-shadow:0 4px 16px rgba(0,0,0,.25);
+  }
+  .fc-btn:hover::before{opacity:1;transform:translateY(-50%) translateX(0);}
+  /* toggle button */
+  .fc-toggle{
+    width:44px;height:44px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;color:var(--accent);
+    box-shadow:0 4px 20px rgba(0,0,0,.3);
+    transition:background .22s,box-shadow .22s,transform .22s;
+  }
+  .fc-toggle:hover{background:var(--accent-soft);box-shadow:0 6px 28px rgba(209,122,63,.3);transform:scale(1.06);}
+  .fc-toggle .ic-grid{display:block;}
+  .fc-toggle .ic-close{display:none;}
+  .fc-wrap:not(.fc-closed) .fc-toggle .ic-grid{display:none;}
+  .fc-wrap:not(.fc-closed) .fc-toggle .ic-close{display:block;}
+  /* light mode */
+  html[data-theme="light"] .fc-body,
+  html[data-theme="light"] .fc-toggle{
+    background:#fff;
+    box-shadow:0 4px 24px rgba(15,30,60,.12),0 1px 4px rgba(15,30,60,.06);
+  }
+  html[data-theme="light"] .fc-btn::before{background:#fff;}
+  /* mobile */
+  @media(max-width:480px){
+    .fc-wrap{right:12px;bottom:72px;gap:6px;}
+    .fc-btn{width:40px;height:40px;}
+    .fc-toggle{width:40px;height:40px;}
+    .fc-btn::before{display:none;}
+  }
 </style>
 </head>
 <body>
@@ -1529,6 +2162,31 @@
 <div class="bg-wash"></div>
 <div class="bg-orbs"><div class="bg-orb o1"></div><div class="bg-orb o2"></div><div class="bg-orb o3"></div></div>
 <canvas class="bg-canvas" id="bgCanvas"></canvas>
+
+<!-- Floating Contact Panel -->
+<div class="fc-wrap" id="fcWrap">
+  <div class="fc-body" id="fcBody">
+    <a href="https://wa.me/6328XXXXXXXX" class="fc-btn" data-tip="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="mailto:info@antech-enviro.com" class="fc-btn" data-tip="Email Us" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+    </a>
+    <a href="tel:+6328XXXXXXXX" class="fc-btn" data-tip="Call Us" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.61 3.53 2 2 0 013.59 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.6A16 16 0 0015.4 16.1l.96-.9a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z"/></svg>
+    </a>
+    <div class="fc-sep"></div>
+    <a href="#contact" class="fc-btn" data-tip="Contact Form" aria-label="Contact Form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </a>
+  </div>
+  <button class="fc-toggle" id="fcToggle" aria-label="Toggle contact options" aria-expanded="true">
+    <!-- open: chevron to collapse -->
+    <svg class="ic-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    <!-- closed: grid to expand -->
+    <svg class="ic-grid" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+  </button>
+</div>
 <div class="cursor-glow" id="cursorGlow"></div>
 <div class="scroll-bar" id="scrollBar"></div>
 
@@ -1540,10 +2198,72 @@
       <img src="assets/logo-day.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-day"/>
     </a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="services.html">Services</a>
+      <a href="index.html">Home</a>
+      <div class="nav-item">
+        <a href="about.html">About Us <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a class="nav-drop-item" href="about.html#intro">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Company Overview</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#certifications">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Quality Certifications</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#ipc3">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M12 12h.01"/><path d="M7 12h2M15 12h2M12 7v2M12 15v2"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">IPC Class 3 Capability</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#testing">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5m4 0h10m-5 4l4 4m-9-4l-4 4"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Testing &amp; Inspection</span></span>
+          </a>
+          <div class="nav-drop-sep"></div>
+          <a class="nav-drop-item" href="about.html#packaging">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Packaging &amp; Delivery</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#responsibility">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Corporate Responsibility</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#faq">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">FAQ</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="services.html">Services <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a class="nav-drop-item" href="pcb-design.html">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M12 12h.01"/><path d="M7 12h2M15 12h2M12 7v2M12 15v2"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">PCB Design &amp; Assembly</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#qra">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">QRA &amp; Inspection</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#consumables">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Production Consumables</span></span>
+          </a>
+          <div class="nav-drop-sep"></div>
+          <a class="nav-drop-item" href="services.html#probe">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Probe Card Solutions</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#reliability">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Reliability Testing</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#technical">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Technical Service</span></span>
+          </a>
+        </div>
+      </div>
       <a href="capabilities.html">Capabilities</a>
-      <a href="industries.html">Industries</a>
       <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">Request a Quote</a>
@@ -1557,125 +2277,45 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-grid">
+<section class="hero hero-bg" id="top">
+  <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="assets/antech_enviro_phils_inc__cover.jpg" aria-hidden="true">
+    <source src="assets/hero-video.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+  <div class="hero-grid hero-grid-solo">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span>Est. 1999 · Parañaque, Metro Manila</div>
-      <h1 id="heroHeadline" data-animate-words>
-        Precision tools for the people who <em class="glitch" data-text="build reliability">build reliability</em> into every chip.
+      <div class="hero-eyebrow"><span class="dot"></span>Semiconductor &amp; PCB · Global</div>
+      <h1 id="heroHeadline">
+        Inspection, reliability, and PCB — <em>one expert partner</em>.
       </h1>
       <p class="hero-lead">
-        Antech-Enviro Phils., Inc. is a Filipino-owned distributor and service partner to the semiconductor, electronics, and PCB industries — supplying inspection, QRA and production equipment, consumables, and end-to-end PCB design, assembly, and repair.
+        QRA equipment, probe cards, consumables, and end-to-end PCB services for semiconductor, EMS, automotive, and medical manufacturers.
       </p>
       <div class="hero-cta-row">
-        <a href="#services" class="btn btn-primary">
-          Explore what we do
+        <a href="contact.html" class="btn btn-primary">
+          Request a Quote
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="#contact" class="btn btn-ghost">Talk to our team</a>
-      </div>
-      <div class="hero-metrics">
-        <div class="metric">
-          <div class="metric-n"><span data-count="25">0</span><span>+</span></div>
-          <div class="metric-l">Years serving PH industry</div>
-        </div>
-        <div class="metric">
-          <div class="metric-n"><span data-count="4">0</span></div>
-          <div class="metric-l">Global brand partners</div>
-        </div>
-        <div class="metric">
-          <div class="metric-n"><span data-count="2">0</span></div>
-          <div class="metric-l">PH facilities + SG office</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual" aria-hidden="true">
-      <div class="pcb-frame">
-        <!-- HUDs -->
-        <div class="hud hud-tl"><span class="hud-led"></span>SYS.OK <span class="hud-val">0x00</span></div>
-        <div class="hud hud-tr">QRA <span class="hud-val">PASS</span></div>
-        <div class="hud hud-bl">PROBE <span class="hud-val">Aligned</span></div>
-        <div class="hud hud-br">Lot #<span class="hud-val">PH-0471</span></div>
-
-        <!-- PCB traces SVG -->
-        <svg class="pcb-svg" viewBox="0 0 480 480" preserveAspectRatio="none">
-          <!-- horizontal and vertical traces -->
-          <path class="trace thick" d="M 40 80 L 180 80 L 180 160 L 320 160"/>
-          <path class="trace" d="M 60 120 L 140 120 L 140 200 L 380 200"/>
-          <path class="trace thick" d="M 420 60 L 420 220 L 300 220 L 300 340"/>
-          <path class="trace" d="M 60 380 L 220 380 L 220 300 L 380 300"/>
-          <path class="trace" d="M 400 420 L 280 420 L 280 260 L 120 260"/>
-          <path class="trace" d="M 200 440 L 200 360 L 80 360 L 80 280"/>
-          <path class="trace" d="M 340 40 L 340 120 L 260 120"/>
-          <path class="trace" d="M 100 440 L 100 420 L 160 420"/>
-
-          <!-- IC chips -->
-          <g transform="translate(210 80)">
-            <rect class="chip" x="0" y="0" width="90" height="60" rx="3"/>
-            <text class="chip-label" x="14" y="34">MCU-A471</text>
-            <!-- chip pins -->
-            <g fill="#2a4052">
-              <rect x="-3" y="8" width="6" height="2"/><rect x="-3" y="18" width="6" height="2"/><rect x="-3" y="28" width="6" height="2"/><rect x="-3" y="38" width="6" height="2"/><rect x="-3" y="48" width="6" height="2"/>
-              <rect x="87" y="8" width="6" height="2"/><rect x="87" y="18" width="6" height="2"/><rect x="87" y="28" width="6" height="2"/><rect x="87" y="38" width="6" height="2"/><rect x="87" y="48" width="6" height="2"/>
-            </g>
-          </g>
-          <g transform="translate(60 260)">
-            <rect class="chip" x="0" y="0" width="60" height="60" rx="3"/>
-            <text class="chip-label" x="10" y="34">SENS</text>
-          </g>
-          <g transform="translate(340 320)">
-            <rect class="chip" x="0" y="0" width="80" height="50" rx="3"/>
-            <text class="chip-label" x="14" y="30">PWR-MGR</text>
-          </g>
-
-          <!-- SMT resistors/capacitors -->
-          <g fill="#1a2a3e" stroke="#2a4052" stroke-width=".8">
-            <rect x="150" y="250" width="14" height="6" rx="1"/>
-            <rect x="150" y="270" width="14" height="6" rx="1"/>
-            <rect x="400" y="380" width="6" height="14" rx="1"/>
-            <rect x="380" y="380" width="6" height="14" rx="1"/>
-            <rect x="240" y="400" width="14" height="6" rx="1"/>
-          </g>
-
-          <!-- Pads -->
-          <circle class="pad" cx="40" cy="80" r="3.5"/>
-          <circle class="pad" cx="420" cy="60" r="3.5"/>
-          <circle class="pad" cx="60" cy="380" r="3.5"/>
-          <circle class="pad" cx="400" cy="420" r="3.5"/>
-          <circle class="pad" cx="380" cy="200" r="3"/>
-          <circle class="pad" cx="120" cy="260" r="3"/>
-          <circle class="pad-ring" cx="40" cy="80" r="6"/>
-          <circle class="pad-ring" cx="420" cy="60" r="6"/>
-          <circle class="pad-ring" cx="60" cy="380" r="6"/>
-          <circle class="pad-ring" cx="400" cy="420" r="6"/>
-        </svg>
-
-        <!-- traveling data blips -->
-        <div class="blip b1"></div>
-        <div class="blip b2"></div>
-        <div class="blip b3"></div>
-        <div class="blip b4"></div>
+        <a href="services.html" class="btn btn-ghost">See our services</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PARTNERS -->
-<section class="partners">
+<section class="partners reveal">
   <div class="partners-label">Authorized partner &amp; distributor for</div>
   <div class="marquee">
     <div class="marquee-track">
-      <div class="partner"><span class="partner-dot"></span>Allied High Tech Products</div>
-      <div class="partner"><span class="partner-dot"></span>Kita Manufacturing Co.</div>
-      <div class="partner"><span class="partner-dot"></span>Mieux Pte. Ltd.</div>
-      <div class="partner"><span class="partner-dot"></span>Nidec SV Probe</div>
-      <div class="partner"><span class="partner-dot"></span>Mateq Singapore</div>
-      <div class="partner"><span class="partner-dot"></span>Allied High Tech Products</div>
-      <div class="partner"><span class="partner-dot"></span>Kita Manufacturing Co.</div>
-      <div class="partner"><span class="partner-dot"></span>Mieux Pte. Ltd.</div>
-      <div class="partner"><span class="partner-dot"></span>Nidec SV Probe</div>
-      <div class="partner"><span class="partner-dot"></span>Mateq Singapore</div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Allied High Tech Products</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Allied%20High%20Tech%20Products.png" alt="Allied High Tech Products" class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Allied%20High%20Tech%20Products.png" alt="Allied High Tech Products" class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Kita Manufacturing Co.</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Kita%20Manufacturing%20Co.png" alt="Kita Manufacturing Co." class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Kita%20Manufacturing%20Co.png" alt="Kita Manufacturing Co." class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Mieux Pte. Ltd.</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Mieux%20Pte.%20Ltd.png" alt="Mieux Pte. Ltd." class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Mieux%20Pte.%20Ltd.png" alt="Mieux Pte. Ltd." class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Nidec SV Probe</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Nidec%20SV%20Probe.png" alt="Nidec SV Probe" class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Nidec%20SV%20Probe.png" alt="Nidec SV Probe" class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Allied High Tech Products</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Allied%20High%20Tech%20Products.png" alt="Allied High Tech Products" class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Allied%20High%20Tech%20Products.png" alt="Allied High Tech Products" class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Kita Manufacturing Co.</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Kita%20Manufacturing%20Co.png" alt="Kita Manufacturing Co." class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Kita%20Manufacturing%20Co.png" alt="Kita Manufacturing Co." class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Mieux Pte. Ltd.</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Mieux%20Pte.%20Ltd.png" alt="Mieux Pte. Ltd." class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Mieux%20Pte.%20Ltd.png" alt="Mieux Pte. Ltd." class="p-logo-l"></div></div>
+      <div class="partner"><div class="partner-inner"><span class="partner-dot"></span>Nidec SV Probe</div><div class="partner-logo-reveal"><img src="add%20assets/card%20image%20v9/New%20folder/Nidec%20SV%20Probe.png" alt="Nidec SV Probe" class="p-logo-d"><img src="add%20assets/card%20image%20v9/New%20folder%20%282%29/Nidec%20SV%20Probe.png" alt="Nidec SV Probe" class="p-logo-l"></div></div>
     </div>
   </div>
 </section>
@@ -1683,16 +2323,99 @@
 <!-- ABOUT -->
 <section class="section" id="about">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">01 / About</div>
-      <h2 class="section-title">Twenty-five years quietly making Philippine manufacturing more reliable.</h2>
-      <p class="section-lead">Founded in 1999 and independently owned since 2002, we started as a specialist supplier to the local semiconductor industry and grew into a full-service partner for QRA, inspection, and PCB.</p>
+    <div class="about-intro reveal">
+      <div class="about-intro-text">
+        <div class="kicker">01 / About</div>
+        <h2 class="section-title">A single partner for the tools, parts, and engineering your production line depends on.</h2>
+        <p class="section-lead">Founded in 1999. We supply and service the semiconductor, electronics, and PCB industries — headquartered in Parañaque with a PCB facility in Cavite and regional support from Singapore.</p>
+      </div>
+      <div class="about-pcb-wrap">
+        <div class="about-pcb-float" id="aboutPcb">
+          <img src="assets/pcb-board.png" class="about-pcb-img" alt="PCB circuit board" draggable="false" />
+          <div class="pcb-ui-overlay">
+            <svg class="pcb-line-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lg-main" x1="36" y1="60" x2="8" y2="86" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#d4890e" stop-opacity=".2"/>
+                  <stop offset="100%" stop-color="#d4890e" stop-opacity=".9"/>
+                </linearGradient>
+                <linearGradient id="lg-mcu" x1="66" y1="42" x2="86" y2="8" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#d4890e" stop-opacity=".2"/>
+                  <stop offset="100%" stop-color="#d4890e" stop-opacity=".9"/>
+                </linearGradient>
+                <linearGradient id="lg-cap" x1="48" y1="20" x2="34" y2="6" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#d4890e" stop-opacity=".2"/>
+                  <stop offset="100%" stop-color="#d4890e" stop-opacity=".9"/>
+                </linearGradient>
+                <linearGradient id="lg-io" x1="18" y1="50" x2="7" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#d4890e" stop-opacity=".2"/>
+                  <stop offset="100%" stop-color="#d4890e" stop-opacity=".9"/>
+                </linearGradient>
+                <filter id="orb-glow" x="-300%" y="-300%" width="700%" height="700%">
+                  <feGaussianBlur stdDeviation="2.4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="line-glow" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="0.9" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <!-- Main: to bottom-left info card area -->
+              <path class="pcb-line-draw" d="M36,60 L8,86" stroke="url(#lg-main)" stroke-width="1" filter="url(#line-glow)" style="transition-delay:0s"/>
+              <!-- MCU: short diagonal to top-right badge -->
+              <path class="pcb-line-draw" d="M66,42 L86,8" stroke="url(#lg-mcu)" stroke-width="1" filter="url(#line-glow)" style="transition-delay:.35s"/>
+              <!-- Caps: short diagonal to top-center badge -->
+              <path class="pcb-line-draw" d="M48,20 L34,6" stroke="url(#lg-cap)" stroke-width="1" filter="url(#line-glow)" style="transition-delay:.65s"/>
+              <!-- I/O: short diagonal to left badge -->
+              <path class="pcb-line-draw" d="M18,50 L7,30" stroke="url(#lg-io)" stroke-width="1" filter="url(#line-glow)" style="transition-delay:.95s"/>
+              <!-- Glowing orbs at origin points -->
+              <circle class="pcb-dot" cx="36" cy="60" r="1.8" fill="#d4890e" filter="url(#orb-glow)" style="transition-delay:.08s"/>
+              <circle class="pcb-dot" cx="66" cy="42" r="1.8" fill="#d4890e" filter="url(#orb-glow)" style="transition-delay:.43s"/>
+              <circle class="pcb-dot" cx="48" cy="20" r="1.8" fill="#d4890e" filter="url(#orb-glow)" style="transition-delay:.73s"/>
+              <circle class="pcb-dot" cx="18" cy="50" r="1.8" fill="#d4890e" filter="url(#orb-glow)" style="transition-delay:1.03s"/>
+            </svg>
+            <!-- Main info card — top-left corner at (5%,88%) matching line end -->
+            <div class="pcb-info-card">
+              <div class="pcb-info-tag">PCB Assembly</div>
+              <div class="pcb-info-row"><span>Layers</span><span class="pcb-info-val">1 – 8L</span></div>
+              <div class="pcb-info-row"><span>Min. trace</span><span class="pcb-info-val">3 mil</span></div>
+              <div class="pcb-info-row"><span>Surface</span><span class="pcb-info-val">HASL · ENIG</span></div>
+              <div class="pcb-info-row"><span>Facility</span><span class="pcb-info-val">Cavite · PH</span></div>
+            </div>
+            <!-- MCU: inside image top-right, line ends at (86,8) -->
+            <div class="pcb-ctag" style="top:3%;left:76%;">
+              <div class="pcb-ctag-inner">
+                <span class="pcb-ctag-label">MCU</span>
+                <span class="pcb-ctag-sub">ARM Cortex · SMD</span>
+              </div>
+            </div>
+            <!-- Caps: inside image top-center, line ends at (34,6) -->
+            <div class="pcb-ctag" style="top:2%;left:24%;">
+              <div class="pcb-ctag-inner">
+                <span class="pcb-ctag-label">Capacitors</span>
+                <span class="pcb-ctag-sub">16V electrolytic</span>
+              </div>
+            </div>
+            <!-- I/O: inside image left side, line ends at (7,30) -->
+            <div class="pcb-ctag" style="top:22%;left:3%;">
+              <div class="pcb-ctag-inner">
+                <span class="pcb-ctag-label">I/O</span>
+                <span class="pcb-ctag-sub">JST · Molex</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Creative pillars row -->
     <div class="about-pillars reveal-group">
+      <!-- PILLAR CARDS — swap the <div class="pillar-placeholder"> with <img src="assets/pillar-01.jpg" class="pillar-img" alt="..."/> when ready -->
       <div class="pillar reveal-child" data-pillar>
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="pillar-media">
+          <img src="assets/pillar-01.png" class="pillar-img" alt="PCB components and consumables for semiconductor materials supply" />
+        </div>
         <div class="pillar-num">01</div>
         <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></div>
         <div class="pillar-label">Materials</div>
@@ -1701,6 +2424,9 @@
       </div>
       <div class="pillar reveal-child" data-pillar>
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="pillar-media">
+          <img src="assets/pillar-02.png" class="pillar-img" alt="Technician operating Allied METPREP 3 metallography polishing system" />
+        </div>
         <div class="pillar-num">02</div>
         <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6M7 17h4"/></svg></div>
         <div class="pillar-label">Equipment</div>
@@ -1709,6 +2435,9 @@
       </div>
       <div class="pillar reveal-child" data-pillar>
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="pillar-media">
+          <img src="assets/pillar-03.png" class="pillar-img" alt="Engineer designing PCB layout on dual monitors" />
+        </div>
         <div class="pillar-num">03</div>
         <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5 5l14 14M19 5L5 19"/></svg></div>
         <div class="pillar-label">Engineering</div>
@@ -1717,6 +2446,9 @@
       </div>
       <div class="pillar reveal-child" data-pillar>
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="pillar-media">
+          <img src="assets/pillar-04.png" class="pillar-img" alt="Precision probing and repair of circuit boards" />
+        </div>
         <div class="pillar-num">04</div>
         <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l7 7-11 11H3v-7L14 3z"/><path d="M11 6l7 7"/></svg></div>
         <div class="pillar-label">Precision repair</div>
@@ -1731,7 +2463,7 @@
       <figure class="about-quote reveal-left">
         <svg class="quote-mark" viewBox="0 0 48 40" aria-hidden="true"><path d="M0 40V22C0 10 6 2 18 0l2 6C12 8 8 14 8 22h10v18H0zm28 0V22C28 10 34 2 46 0l2 6c-8 2-12 8-12 16h10v18H28z" fill="currentColor"/></svg>
         <blockquote class="about-quote-text">
-          From a single distribution line to a <em>vertically integrated</em> partner — materials, equipment, engineering services, and precision repair under one roof.
+          One supplier, four disciplines — <em>materials, equipment, engineering, and precision repair</em> — under a single purchasing relationship.
         </blockquote>
         <div class="quote-meta">
           <div class="quote-meta-cols">
@@ -1741,8 +2473,8 @@
           </div>
         </div>
         <div class="about-body-copy">
-          <p>Our people work alongside reliability engineers, failure analysis labs, and production floors across Luzon — keeping yields up, lines moving, and inspection tools calibrated to the standards our customers' customers expect.</p>
-          <p>Alongside our Parañaque headquarters, we run a PCB service facility in Dasmariñas, Cavite, and coordinate regional sourcing and engineering support through our Singapore office.</p>
+          <p>We work alongside reliability engineers, FA labs, and production teams across Luzon — keeping yields stable, lines running, and inspection equipment calibrated to industry standards.</p>
+          <p>Headquartered in Parañaque, with a PCB design and assembly facility in Dasmariñas, Cavite, and regional sourcing support through our Singapore office.</p>
         </div>
       </figure>
 
@@ -1787,13 +2519,16 @@
 <section class="section" id="services" style="padding-top:40px;">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="kicker">02 / What we do</div>
-      <h2 class="section-title">Four disciplines. One supplier relationship.</h2>
-      <p class="section-lead">We source, specify, install, and service — so engineering teams don't have to coordinate six vendors to keep one line reliable.</p>
+      <div class="kicker">02 / What we supply</div>
+      <h2 class="section-title">Six service lines. One point of contact.</h2>
+      <p class="section-lead">We source, specify, install, and service the equipment and consumables your reliability and production teams need — so purchasing deals with one vendor, not six.</p>
     </div>
 
-    <div class="services-grid reveal-group">
-      <div class="svc reveal-child">
+    <div class="svc-carousel-wrap">
+      <div class="svc-carousel-viewport">
+        <div class="services-grid" id="svcTrack">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-01.png" class="svc-img" alt="QRA inspection microscopy" /></div>
         <div class="svc-num">S.01</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1805,7 +2540,8 @@
         <div class="svc-tags"><span class="svc-tag">Failure Analysis</span><span class="svc-tag">Metallography</span><span class="svc-tag">Microscopy</span></div>
       </div>
 
-      <div class="svc reveal-child">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-02.png" class="svc-img" alt="PCB assembly and repair" /></div>
         <div class="svc-num">S.02</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1817,7 +2553,8 @@
         <div class="svc-tags"><span class="svc-tag">Multilayer</span><span class="svc-tag">SMT</span><span class="svc-tag">Rework</span></div>
       </div>
 
-      <div class="svc reveal-child">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-03.png" class="svc-img" alt="Production consumables — abrasives, polishing media and chemistry" /></div>
         <div class="svc-num">S.03</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1829,7 +2566,8 @@
         <div class="svc-tags"><span class="svc-tag">Abrasives</span><span class="svc-tag">Mounting</span><span class="svc-tag">Polishing</span></div>
       </div>
 
-      <div class="svc reveal-child">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-04.png" class="svc-img" alt="Nidec SV probe cards for wafer test and characterization" /></div>
         <div class="svc-num">S.04</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1841,7 +2579,8 @@
         <div class="svc-tags"><span class="svc-tag">Wafer Test</span><span class="svc-tag">Probe Cards</span><span class="svc-tag">Cleaning</span></div>
       </div>
 
-      <div class="svc reveal-child">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-05.png" class="svc-img" alt="Reliability test chamber for thermal shock and HAST" /></div>
         <div class="svc-num">S.05</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1853,7 +2592,8 @@
         <div class="svc-tags"><span class="svc-tag">Thermal</span><span class="svc-tag">HAST</span><span class="svc-tag">Chambers</span></div>
       </div>
 
-      <div class="svc reveal-child">
+      <div class="svc">
+        <div class="svc-img-wrap"><img src="assets/svc-06.png" class="svc-img" alt="Technical service and training on the production floor" /></div>
         <div class="svc-num">S.06</div>
         <div class="svc-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1864,7 +2604,21 @@
         <p>Installation, preventive maintenance, application training, and on-call technical support for every tool we supply.</p>
         <div class="svc-tags"><span class="svc-tag">Install</span><span class="svc-tag">PM</span><span class="svc-tag">Training</span></div>
       </div>
-    </div>
+        </div><!-- /services-grid track -->
+      </div><!-- /viewport -->
+      <div class="svc-nav">
+        <button class="svc-arrow" id="svcPrev" aria-label="Previous" disabled>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="svc-dots" id="svcDots">
+          <button class="svc-dot active" data-idx="0"></button>
+          <button class="svc-dot" data-idx="1"></button>
+        </div>
+        <button class="svc-arrow" id="svcNext" aria-label="Next">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div><!-- /svc-carousel-wrap -->
   </div>
 </section>
 
@@ -1873,7 +2627,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">03 / Capabilities</div>
-      <h2 class="section-title">Built for reliability engineers — not just purchasing forms.</h2>
+      <h2 class="section-title">Why corporations consolidate sourcing with us.</h2>
+      <p class="section-lead">Depth of focus, direct principal relationships, and local service — the reasons our customers reduce their vendor count.</p>
     </div>
 
     <div class="cap-grid">
@@ -1893,19 +2648,19 @@
       <div class="cap-list reveal">
         <div class="cap-item">
           <div class="cap-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div>
-          <div><h4>Specialist, not generalist</h4><p>25+ years exclusively focused on semiconductor and PCB — we know the standards, the customers' customers, and the failure modes.</p></div>
+          <div><h4>Specialist focus</h4><p>25+ years dedicated to semiconductor, electronics, and PCB. Your team doesn't have to educate ours on standards or failure modes.</p></div>
         </div>
         <div class="cap-item">
           <div class="cap-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div>
-          <div><h4>Backed by named principals</h4><p>Authorized distributor for Allied High Tech, Kita Manufacturing, Mieux Pte. Ltd., and Nidec SV Probe — real product pipelines, real technical escalation paths.</p></div>
+          <div><h4>Authorized principals</h4><p>Direct pipelines with Allied High Tech, Kita Manufacturing, Mieux, and Nidec SV Probe. No grey-market risk, no broken support chains.</p></div>
         </div>
         <div class="cap-item">
           <div class="cap-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div>
-          <div><h4>In-country service</h4><p>Local engineers for installation, preventive maintenance, and issue response — no three-week queue for overseas support.</p></div>
+          <div><h4>Local service engineers</h4><p>Philippine-based technicians for installation, preventive maintenance, and incident response — no multi-week offshore queues.</p></div>
         </div>
         <div class="cap-item">
           <div class="cap-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></div>
-          <div><h4>Own PCB facility</h4><p>Design and assembly capability in Cavite means we can prototype, repair, and reverse-engineer alongside our distribution business.</p></div>
+          <div><h4>In-house PCB capability</h4><p>Our Cavite facility handles PCB design, SMT assembly, rework, and board-level repair — extending what we can take on.</p></div>
         </div>
       </div>
     </div>
@@ -1917,45 +2672,54 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">04 / Industries</div>
-      <h2 class="section-title">Who we work with.</h2>
+      <h2 class="section-title">Industries we serve.</h2>
+      <p class="section-lead">Manufacturers across eight verticals source equipment, consumables, and engineering services from us — often within the same site.</p>
     </div>
     <div class="industries reveal-group">
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-01.png" class="ind-img" alt="Semiconductor lab" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
         <h4>Semiconductor</h4>
         <p>IDMs, OSAT, and fabless test houses across the Philippines.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-02.png" class="ind-img" alt="EMS electronics factory" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 14h2M12 14h4"/></svg></div>
         <h4>EMS &amp; Electronics</h4>
         <p>Contract manufacturers and brand OEMs running SMT and through-hole lines.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-03.png" class="ind-img" alt="Automotive electronics" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h18M5 17V9l7-5 7 5v8"/><path d="M9 17v-5h6v5"/></svg></div>
         <h4>Automotive Electronics</h4>
         <p>Reliability qualification and failure analysis for automotive-grade components.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-04.png" class="ind-img" alt="Aerospace and defense electronics" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"/></svg></div>
         <h4>Aerospace &amp; Defense</h4>
         <p>High-reliability testing and inspection for mission-critical assemblies.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-05.png" class="ind-img" alt="Medical devices electronics" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2v4M18 2v4M4 8h16v12H4z"/><path d="M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></div>
         <h4>Medical Devices</h4>
         <p>Clean-grade PCB assembly and reliability testing for regulated hardware.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-06.png" class="ind-img" alt="Industrial and power electronics" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
         <h4>Industrial &amp; Power</h4>
         <p>Ruggedized electronics, power modules, and control-board repair.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-07.png" class="ind-img" alt="R&D university semiconductor lab" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v10H4zM2 20h20"/><path d="M8 10h4"/></svg></div>
         <h4>R&amp;D &amp; Universities</h4>
         <p>Materials labs, reliability research groups, and engineering programs.</p>
       </div>
       <div class="ind reveal-child">
+        <div class="ind-img-wrap"><img src="assets/ind-08.png" class="ind-img" alt="Test and measurement PCB probing" /></div>
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
         <h4>Test &amp; Measurement</h4>
         <p>Probe card services, cleaning, and characterization consumables.</p>
@@ -1968,9 +2732,9 @@
 <section class="section flow-section" id="flow">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="kicker">0.5 / How we plug in</div>
-      <h2 class="section-title">Trace a job from inquiry to qualified delivery.</h2>
-      <p class="section-lead">Pick a scenario and watch the handoffs light up — this is how a typical engagement moves through our team.</p>
+      <div class="kicker">How we engage</div>
+      <h2 class="section-title">From inquiry to qualified delivery.</h2>
+      <p class="section-lead">Select a scenario to see how a typical engagement moves through our team.</p>
     </div>
 
     <div class="flow-stage">
@@ -2026,8 +2790,8 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">05 / Contact</div>
-      <h2 class="section-title">Let's talk about what's on your line.</h2>
-      <p class="section-lead">Tell us what you're qualifying, building, or trying to keep alive — we'll route you to the right engineer within one business day.</p>
+      <h2 class="section-title">Request a quote.</h2>
+      <p class="section-lead">Tell us about your qualification, equipment need, or production requirement. We route your inquiry to the right engineer and reply within one business day.</p>
     </div>
 
     <div class="contact-grid">
@@ -2116,29 +2880,28 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
+    <div class="footer-top reveal-group">
+      <div class="footer-brand reveal-child">
         <div class="brand" style="pointer-events:none;">
           <img src="assets/logo-night.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-night"/>
           <img src="assets/logo-day.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-day"/>
         </div>
-        <p>Distributor and service partner to the Philippine semiconductor, electronics, and PCB industries since 1999.</p>
+        <p>Technical distributor and service partner to the semiconductor, electronics, and PCB industries since 1999.</p>
       </div>
-      <div class="footer-col">
+      <div class="footer-col reveal-child">
         <h5>Company</h5>
         <a href="index.html#about">About</a>
         <a href="capabilities.html">Capabilities</a>
-        <a href="industries.html">Industries</a>
         <a href="contact.html">Contact</a>
       </div>
-      <div class="footer-col">
+      <div class="footer-col reveal-child">
         <h5>Services</h5>
         <a href="services.html">QRA &amp; Inspection</a>
         <a href="services.html">PCB Design &amp; Assembly</a>
         <a href="services.html">Consumables</a>
         <a href="services.html">Probe Card Solutions</a>
       </div>
-      <div class="footer-col">
+      <div class="footer-col reveal-child">
         <h5>Find us</h5>
         <a href="tel:+6328820254">(02) 8820 2454</a>
         <a href="mailto:info@antech-enviro.com">info@antech-enviro.com</a>
@@ -2198,10 +2961,12 @@
     window.addEventListener('pointermove', (e)=>{ mx = e.clientX*dpr; my = e.clientY*dpr; });
     window.addEventListener('pointerleave', ()=>{ mx=-9999; my=-9999; });
     function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
-    let pCol = css('--particle')||'rgba(70,227,196,.6)', lCol = css('--particle-link')||'rgba(70,227,196,.15)';
-    document.getElementById('themeToggle')?.addEventListener('click',()=>{ setTimeout(()=>{ pCol=css('--particle')||'rgba(70,227,196,.6)'; lCol=css('--particle-link')||'rgba(70,227,196,.15)'; },50); });
-    let rafId;
-    function loop(){
+    let pCol = css('--particle')||'rgba(209,122,63,.6)', lCol = css('--particle-link')||'rgba(209,122,63,.15)';
+    document.getElementById('themeToggle')?.addEventListener('click',()=>{ setTimeout(()=>{ pCol=css('--particle')||'rgba(209,122,63,.6)'; lCol=css('--particle-link')||'rgba(209,122,63,.15)'; },50); });
+    let rafId, lastT = 0;
+    function loop(ts){
+      if(ts - lastT < 33){ requestAnimationFrame(loop); return; } // ~30 fps cap
+      lastT = ts;
       ctx.clearRect(0,0,w,h);
       for (let i=0;i<pts.length;i++){
         const p = pts[i];
@@ -2249,6 +3014,7 @@
         : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
     });
     navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      if(a.parentElement.classList.contains('nav-item')&&a.parentElement.querySelector('.nav-dropdown'))return;
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded','false');
       menuBtn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
@@ -2256,9 +3022,21 @@
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){navLinks.classList.remove('open');}});
   }
 
-  // Reveal on scroll — re-triggers when scrolled back
+  /* Mobile nav-item dropdown tap toggle */
+  document.querySelectorAll('.nav-item > a').forEach(a=>{
+    a.addEventListener('click',e=>{
+      if(window.innerWidth > 720) return;
+      e.preventDefault();
+      const item = a.closest('.nav-item');
+      const wasOpen = item.classList.contains('mob-open');
+      document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('mob-open'));
+      if(!wasOpen) item.classList.add('mob-open');
+    });
+  });
+
+  // Reveal on scroll — fires once
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { e.target.classList.toggle('in', e.isIntersecting); });
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal, .reveal-group, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur').forEach(el => io.observe(el));
 
@@ -2297,35 +3075,6 @@
 
   // ===================== HEAVY INTERACTIVITY =====================
 
-  // Split hero headline into words for staggered reveal
-  (function splitWords(){
-    const h1 = document.getElementById('heroHeadline');
-    if (!h1) return;
-    const walk = (node) => {
-      const kids = [...node.childNodes];
-      kids.forEach(n => {
-        if (n.nodeType === Node.TEXT_NODE){
-          const frag = document.createDocumentFragment();
-          const words = n.textContent.split(/(\s+)/);
-          words.forEach((w, i) => {
-            if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
-            const s = document.createElement('span');
-            s.className = 'word';
-            s.textContent = w;
-            s.style.animationDelay = (0.35 + (frag.childNodes.length * 0.05)) + 's';
-            frag.appendChild(s);
-          });
-          n.replaceWith(frag);
-        } else if (n.nodeType === Node.ELEMENT_NODE){
-          walk(n);
-        }
-      });
-    };
-    walk(h1);
-    // now reassign delays sequentially
-    const allWords = h1.querySelectorAll('.word');
-    allWords.forEach((w, i) => { w.style.animationDelay = (0.2 + i*0.06) + 's'; });
-  })();
 
   // Scroll progress bar
   const scrollBar = document.getElementById('scrollBar');
@@ -2388,6 +3137,28 @@
     })();
   })();
 
+  // About PCB — hover glow + 3D tilt + smooth zoom
+  (function aboutPcbTilt(){
+    const wrap = document.getElementById('aboutPcb');
+    if (!wrap || window.matchMedia('(hover:none)').matches) return;
+    const img = wrap.querySelector('.about-pcb-img');
+    let rx=0,ry=0,trx=0,tryv=0,sc=1,tsc=1,hovered=false;
+    wrap.addEventListener('mouseenter', () => { hovered=true; wrap.classList.add('is-hovered'); tsc=1.08; });
+    wrap.addEventListener('mouseleave', () => { hovered=false; wrap.classList.remove('is-hovered'); trx=0; tryv=0; tsc=1; });
+    wrap.addEventListener('pointermove', e => {
+      const r = wrap.getBoundingClientRect();
+      trx = -((e.clientY - r.top) / r.height - .5) * 12;
+      tryv =  ((e.clientX - r.left) / r.width  - .5) * 12;
+    });
+    (function loop(){
+      rx += (trx-rx)*.08;
+      ry += (tryv-ry)*.08;
+      sc += (tsc-sc)*.055; // slow smooth scale interpolation
+      img.style.transform = `scale(${sc.toFixed(4)}) perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+      requestAnimationFrame(loop);
+    })();
+  })();
+
   // Magnetic buttons — one shared RAF loop
   (function(){
     const btns=[...document.querySelectorAll('.btn,.nav-cta,.form-submit')];
@@ -2423,6 +3194,53 @@
       rows[i % rows.length].classList.add('flash');
       i++;
     }, 1800);
+  })();
+
+  // ====== SERVICES INFINITE MARQUEE ======
+  (function svcMarquee(){
+    const track = document.getElementById('svcTrack');
+    const viewport = track && track.closest('.svc-carousel-viewport');
+    if (!track || !viewport) return;
+    if (window.innerWidth <= 768) return; // mobile: use CSS scroll-snap instead
+
+    const GAP = 20, PER = 3, SPEED = 0.55;
+    const origCards = Array.from(track.querySelectorAll(':scope > .svc'));
+
+    // Clone for seamless loop
+    origCards.forEach(c => {
+      const clone = c.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    function cardWidth(){ return Math.floor((viewport.offsetWidth - GAP*(PER-1))/PER); }
+    function loopWidth(){ return origCards.length * (cardWidth() + GAP); }
+
+    function layout(){
+      const w = cardWidth();
+      track.querySelectorAll('.svc').forEach(c => { c.style.width = w+'px'; });
+    }
+
+    layout();
+    window.addEventListener('resize', layout, {passive:true});
+
+    // Hide arrow/dot nav
+    const nav = document.querySelector('.svc-nav');
+    if (nav) nav.style.display = 'none';
+
+    let offset = 0, paused = false;
+    viewport.addEventListener('mouseenter', () => { paused = true; });
+    viewport.addEventListener('mouseleave', () => { paused = false; });
+
+    (function tick(){
+      if (!paused){
+        offset += SPEED;
+        const lw = loopWidth();
+        if (offset >= lw) offset -= lw;
+        track.style.transform = `translateX(-${offset.toFixed(2)}px)`;
+      }
+      requestAnimationFrame(tick);
+    })();
   })();
 
   // ====== INTERACTIVE FLOW DIAGRAM ======
@@ -2579,16 +3397,53 @@
     brand.addEventListener('click', (e) => {
       const now = Date.now();
       if (now - lastTap > 800) count = 0;
+
       count++; lastTap = now;
       if (count >= 5){
         document.documentElement.style.setProperty('--accent', '#ff5ec4');
         document.documentElement.style.setProperty('--accent-2', '#fde047');
         count = 0;
         setTimeout(() => {
-          document.documentElement.style.setProperty('--accent', '#46e3c4');
-          document.documentElement.style.setProperty('--accent-2', '#38bdf8');
+          document.documentElement.style.setProperty('--accent', '#D17A3F');
+          document.documentElement.style.setProperty('--accent-2', '#F4B678');
         }, 4000);
       }
+    });
+  })();
+
+  // Contact card 3D tilt + spotlight
+  (function contactInteract(){
+    if(window.matchMedia('(hover:none)').matches) return;
+    document.querySelectorAll('.contact-card').forEach(card => {
+      let tp = false;
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--mx', (x / r.width * 100) + '%');
+        card.style.setProperty('--my', (y / r.height * 100) + '%');
+        if (tp) return; tp = true;
+        requestAnimationFrame(() => {
+          const rx = ((y / r.height) - .5) * 9;
+          const ry = (.5 - (x / r.width)) * 9;
+          card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(4px)`;
+          tp = false;
+        });
+      }, {passive:true});
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+        card.style.setProperty('--mx', '50%');
+        card.style.setProperty('--my', '50%');
+      });
+    });
+  })();
+  // ====== FLOATING CONTACT PANEL ======
+  (function floatContact(){
+    const wrap = document.getElementById('fcWrap');
+    const btn  = document.getElementById('fcToggle');
+    if(!wrap || !btn) return;
+    btn.addEventListener('click', () => {
+      const closed = wrap.classList.toggle('fc-closed');
+      btn.setAttribute('aria-expanded', String(!closed));
     });
   })();
 </script>

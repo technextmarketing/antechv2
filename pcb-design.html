@@ -1,0 +1,1620 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PCB Design & Assembly Services — Antech-Enviro Phils., Inc.</title>
+<meta name="description" content="Full-cycle PCB design, fabrication, and SMT assembly for Philippine semiconductor, EMS, automotive, and medical manufacturers. Multilayer, flex, rigid-flex, and HDI boards." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ===== ANIMATIONS ===== */
+.cursor-glow{position:fixed;top:0;left:0;width:540px;height:540px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(209,122,63,.12),rgba(244,182,120,.04) 40%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .4s;mix-blend-mode:screen;opacity:0;}
+body.cursor-ready .cursor-glow{opacity:1;}
+@media(hover:none){
+  .cursor-glow{display:none;}
+  .bg-orb{animation:none !important;}
+  .hero-eyebrow .dot{animation:none;opacity:1;}
+  .kicker::before{animation:none;width:20px;}
+  .card-icon:hover,.step-num:hover,.board-card:hover,.guarantee-card:hover{animation:none !important;border-color:var(--border) !important;background:var(--panel) !important;box-shadow:none !important;transform:none !important;}
+  .btn:hover,.nav-cta:hover{transform:none !important;}
+}
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:200;transition:width .1s linear;box-shadow:0 0 12px var(--accent);}
+.btn::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:left .6s;}
+.btn:hover::before{left:100%;}
+.nav-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);transition:transform .5s;}
+.nav-cta:hover::before{transform:translateX(100%);}
+.nav-links a{position:relative;}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.8,.2,1);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--text);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.4,0,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+.reveal-left.in{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+.reveal-right.in{opacity:1;transform:none;}
+.reveal-child{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
+.reveal-group.in .reveal-child{opacity:1;transform:none;}
+.reveal-group.in .reveal-child:nth-child(1){transition-delay:.05s;}
+.reveal-group.in .reveal-child:nth-child(2){transition-delay:.12s;}
+.reveal-group.in .reveal-child:nth-child(3){transition-delay:.19s;}
+.reveal-group.in .reveal-child:nth-child(4){transition-delay:.26s;}
+.reveal-group.in .reveal-child:nth-child(5){transition-delay:.33s;}
+.reveal-group.in .reveal-child:nth-child(6){transition-delay:.40s;}
+.kicker::before{animation:kickerGrow 1.2s cubic-bezier(.2,.8,.2,1);}
+@keyframes kickerGrow{from{width:0;}to{width:20px;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important;}}
+
+/* ===== VARIABLES ===== */
+:root{
+  --bg:#05090f;--bg-2:#080d17;--panel:#0b121d;--panel-2:#0f1724;
+  --border:#172336;--border-soft:#101a29;
+  --text:#e6edf7;--muted:#8a97ad;--dim:#4a5771;
+  --accent:#D17A3F;--accent-2:#F4B678;--accent-3:#ffb84d;
+  --accent-soft:rgba(209,122,63,.14);
+  --grid-line:rgba(209,122,63,.05);
+  --particle:rgba(209,122,63,.6);--particle-link:rgba(209,122,63,.15);
+  --shadow-lg:0 40px 80px -30px rgba(0,0,0,.7);
+}
+html[data-theme="light"]{
+  --bg:#f5f7fb;--bg-2:#eef2f8;--panel:#ffffff;--panel-2:#f7f9fc;
+  --border:#d9e0ec;--border-soft:#e6ebf3;
+  --text:#0b1628;--muted:#5b6a82;--dim:#94a2b8;
+  --accent:#9E5621;--accent-2:#C17A3D;--accent-3:#d97706;
+  --accent-soft:rgba(158,86,33,.12);
+  --grid-line:rgba(158,86,33,.08);
+  --particle:rgba(158,86,33,.55);--particle-link:rgba(158,86,33,.18);
+  --shadow-lg:0 40px 80px -30px rgba(15,30,60,.25);
+}
+html{transition:background-color .5s;}
+body{transition:background-color .5s,color .5s;}
+
+/* ===== BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+img{max-width:100%;height:auto;}
+html{scroll-behavior:smooth;font-size:17px;}
+body{font-family:'Manrope',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--accent);color:#1a0804;}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(5,9,15,.72);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
+.nav.scrolled{border-color:var(--border);background:rgba(5,9,15,.88);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-logo{display:block;height:38px;width:auto;transition:opacity .3s ease;}
+.brand-logo-day{display:none;}
+html[data-theme="light"] .brand-logo-night{display:none;}
+html[data-theme="light"] .brand-logo-day{display:block;}
+.footer .brand-logo{height:42px;}
+.nav-inner>.nav-cta{order:3;}
+.nav-inner>.theme-toggle{order:4;margin-left:6px;}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:.88rem;font-weight:500;color:var(--muted);}
+.nav-links a{transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{padding:9px 18px;border-radius:8px;background:var(--accent);color:#1a0804;font-weight:600;font-size:.85rem;transition:transform .2s,box-shadow .2s;border:1px solid transparent;position:relative;overflow:hidden;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(209,122,63,.28);}
+.menu-btn{display:none;background:none;border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);cursor:pointer;transition:background .2s,border-color .2s;}
+.theme-toggle:hover{background:rgba(255,255,255,.08);border-color:#2a3a55;}
+.theme-toggle svg{width:18px;height:18px;}
+
+/* ===== BACKGROUNDS ===== */
+.bg-wash{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(ellipse 80% 50% at 50% -10%,var(--accent-soft),transparent 60%),radial-gradient(ellipse 60% 40% at 90% 30%,rgba(244,182,120,.05),transparent 60%);}
+.bg-wash::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 85%);opacity:.7;animation:gridPan 40s linear infinite;}
+@keyframes gridPan{to{background-position:56px 56px,56px 56px;}}
+.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;}
+.bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.18;animation:orbDrift 28s ease-in-out infinite;}
+.bg-orb.o1{width:540px;height:540px;background:var(--accent);top:-12%;left:-8%;}
+.bg-orb.o2{width:480px;height:480px;background:var(--accent-2);top:35%;right:-10%;animation-delay:-9s;}
+.bg-orb.o3{width:420px;height:420px;background:var(--accent-3);bottom:-10%;left:30%;animation-delay:-18s;opacity:.14;}
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(60px,40px) scale(1.08);}66%{transform:translate(-40px,60px) scale(.94);}}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:1;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
+.section{padding:80px 32px;position:relative;}
+.kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:18px;padding-left:28px;position:relative;}
+.kicker::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:20px;height:1px;background:var(--accent);}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-bottom:20px;}
+.section-lead{font-size:1.05rem;color:var(--muted);max-width:680px;line-height:1.65;}
+.section-head{max-width:720px;margin-bottom:52px;}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:.92rem;border:1px solid transparent;transition:all .25s;position:relative;overflow:hidden;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(209,122,63,.3);}
+.btn-ghost{background:rgba(255,255,255,.03);border-color:var(--border);color:var(--text);}
+.btn-ghost:hover{background:rgba(255,255,255,.06);border-color:#2a3a55;}
+.btn svg{width:16px;height:16px;}
+
+/* ===== PAGE HERO ===== */
+.page-hero{padding:160px 32px 100px;position:relative;overflow:hidden;}
+.page-hero-inner{max-width:860px;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:100px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.24);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:28px;}
+.page-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:dotpulse 1.8s ease-in-out infinite;}
+@keyframes dotpulse{50%{opacity:.35;}}
+.page-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:600;letter-spacing:-.025em;line-height:1.06;margin-bottom:24px;}
+.page-title em{font-style:normal;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.page-lead{font-size:1.1rem;color:var(--muted);max-width:680px;line-height:1.65;margin-bottom:36px;}
+.page-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:64px;}
+/* hero stat bar */
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--border);border-radius:14px;background:linear-gradient(135deg,var(--panel),var(--panel-2));overflow:hidden;max-width:720px;}
+.h-stat{flex:1;min-width:140px;padding:20px 24px;border-right:1px solid var(--border);}
+.h-stat:last-child{border-right:none;}
+.h-stat-n{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:var(--text);letter-spacing:-.02em;line-height:1;}
+.h-stat-n span{color:var(--accent);font-size:1.1rem;}
+.h-stat-l{font-size:.72rem;color:var(--muted);margin-top:6px;letter-spacing:.04em;}
+/* hero bg pcb trace art */
+.hero-trace-bg{position:absolute;right:-60px;top:80px;width:520px;height:520px;opacity:.06;pointer-events:none;}
+
+/* ===== GUARANTEE CARDS ===== */
+.guarantees{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:0;}
+.guarantee-card{
+  background:linear-gradient(160deg,var(--panel),var(--panel-2));
+  border:1px solid var(--border);border-radius:16px;
+  padding:28px 24px;position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.guarantee-card:hover{transform:translateY(-4px);border-color:rgba(209,122,63,.3);box-shadow:0 16px 48px -16px rgba(209,122,63,.2);}
+.guarantee-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle 180px at var(--mx,50%) var(--my,50%),rgba(209,122,63,.1),transparent 65%);opacity:0;transition:opacity .3s;}
+.guarantee-card:hover::before{opacity:1;}
+.gc-icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.2);display:grid;place-items:center;color:var(--accent);margin-bottom:18px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s;}
+.guarantee-card:hover .gc-icon{transform:rotate(-8deg) scale(1.1);background:var(--accent);color:#1a0804;}
+.gc-icon svg{width:22px;height:22px;}
+.gc-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
+.gc-body{font-size:.86rem;color:var(--muted);line-height:1.6;}
+
+/* ===== BOARD TYPE CARDS ===== */
+.board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.board-card{
+  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;position:relative;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+  display:flex;flex-direction:column;
+}
+.board-card:hover{transform:translateY(-5px);border-color:rgba(209,122,63,.32);box-shadow:0 20px 60px -20px rgba(209,122,63,.22);}
+.board-img{width:100%;height:180px;object-fit:cover;display:block;background:var(--panel-2);}
+.board-img-placeholder{
+  width:100%;height:180px;
+  background:linear-gradient(135deg,var(--panel-2),var(--panel));
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--dim);font-size:.72rem;font-family:'JetBrains Mono',monospace;
+  letter-spacing:.1em;
+}
+.board-body{padding:24px;}
+.board-num{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--dim);letter-spacing:.12em;margin-bottom:10px;}
+.board-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:-.015em;margin-bottom:10px;}
+.board-desc{font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.board-specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+.board-spec{font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border);}
+
+/* ===== PROCESS STEPS ===== */
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+.process-grid::before{content:"";position:absolute;top:28px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 10%,var(--border) 90%,transparent);z-index:0;}
+.step{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:0 12px 0;position:relative;z-index:1;
+}
+.step-num{
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--panel),var(--panel-2));
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  margin-bottom:16px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:700;
+  color:var(--accent);letter-spacing:.06em;line-height:1;
+  transition:background .3s,border-color .3s,box-shadow .3s,transform .3s;
+  position:relative;
+}
+.step:hover .step-num{background:var(--accent);color:#1a0804;border-color:var(--accent);box-shadow:0 0 24px rgba(209,122,63,.35);transform:scale(1.1);}
+.step-num::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px dashed rgba(209,122,63,.2);transition:border-color .3s;}
+.step:hover .step-num::after{border-color:rgba(209,122,63,.5);}
+.step-icon{width:20px;height:20px;color:var(--accent);flex-shrink:0;transition:color .3s;opacity:.85;}
+.step:hover .step-icon{color:#1a0804;opacity:1;}
+.step-title{font-family:'Space Grotesk',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;}
+.step-body{font-size:.76rem;color:var(--muted);line-height:1.55;}
+
+/* Second row of process */
+.process-row-2{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+.process-row-2::before{content:"";position:absolute;top:28px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 10%,var(--border) 90%,transparent);z-index:0;}
+
+/* ===== DETAIL SECTIONS ===== */
+.svc-list{display:grid;gap:0;}
+/* Tab bar */
+.svc-tabs{display:flex;gap:6px;margin-bottom:48px;background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:6px;}
+.svc-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border:none;border-radius:10px;background:transparent;color:var(--muted);font-family:'Manrope',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;text-align:center;line-height:1.3;}
+.svc-tab svg{width:16px;height:16px;flex-shrink:0;}
+.svc-tab.active{background:var(--accent);color:#1a0804;box-shadow:0 4px 16px rgba(209,122,63,.28);}
+.svc-tab:hover:not(.active){background:rgba(255,255,255,.05);color:var(--text);}
+@media(max-width:640px){.svc-tab span{display:none;}.svc-tab svg{width:20px;height:20px;}.svc-tabs{gap:4px;}.svc-tab{padding:12px;}}
+@keyframes tabFadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+/* Service detail panels */
+.svc-detail{display:none;grid-template-columns:1fr 340px;gap:56px;align-items:start;padding:64px 0;border-bottom:1px solid var(--border);position:relative;}
+.svc-detail.tab-active{display:grid;}
+.svc-detail:last-child{border-bottom:none;}
+.svc-detail-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);letter-spacing:.12em;margin-bottom:20px;}
+.svc-detail-icon{width:54px;height:54px;border-radius:14px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.2);display:grid;place-items:center;color:var(--accent);margin-bottom:20px;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s;}
+.svc-detail-icon:hover{transform:rotate(-8deg) scale(1.1);background:var(--accent);color:#1a0804;}
+.svc-detail-icon svg{width:26px;height:26px;}
+.svc-detail h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,2.5vw,1.9rem);font-weight:600;letter-spacing:-.02em;margin-bottom:16px;line-height:1.15;}
+.svc-detail p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:14px;}
+.feat-list{list-style:none;margin:24px 0 0;display:grid;gap:11px;}
+.feat-list li{display:flex;align-items:flex-start;gap:12px;color:var(--muted);font-size:.96rem;line-height:1.5;}
+.feat-check{width:20px;height:20px;border-radius:6px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.25);display:grid;place-items:center;flex-shrink:0;margin-top:2px;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;}
+.feat-check svg{width:11px;height:11px;color:var(--accent);}
+.feat-list li:hover .feat-check{transform:scale(1.2) rotate(-12deg);background:var(--accent);color:#1a0804;}
+.svc-panel{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:16px;padding:28px;position:sticky;top:100px;transition:border-color .3s,box-shadow .3s;}
+.svc-panel:hover{box-shadow:0 8px 40px -12px rgba(209,122,63,.18);border-color:rgba(209,122,63,.22);}
+.svc-panel-head{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:16px;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
+.svc-tag{font-size:.7rem;font-family:'JetBrains Mono',monospace;padding:4px 9px;border-radius:6px;background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border);}
+.spec-table-mini{width:100%;border-collapse:collapse;margin-bottom:20px;}
+.spec-table-mini tr{border-bottom:1px solid var(--border-soft);}
+.spec-table-mini tr:last-child{border-bottom:none;}
+.spec-table-mini td{padding:8px 0;font-size:.8rem;}
+.spec-table-mini td:first-child{color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:.72rem;width:45%;}
+.spec-table-mini td:last-child{color:var(--text);font-weight:600;text-align:right;}
+.panel-note{font-size:.82rem;color:var(--muted);line-height:1.55;padding:14px;background:rgba(255,255,255,.02);border:1px solid var(--border-soft);border-radius:10px;}
+.panel-note b{color:var(--text);}
+
+/* ===== INDUSTRIES STRIP ===== */
+.ind-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.ind-chip{
+  background:linear-gradient(135deg,var(--panel),var(--panel-2));
+  border:1px solid var(--border);border-radius:14px;
+  padding:22px 18px;text-align:center;
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.ind-chip:hover{transform:translateY(-3px);border-color:rgba(209,122,63,.3);box-shadow:0 10px 32px -12px rgba(209,122,63,.2);}
+.ind-chip-icon{width:40px;height:40px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;background:rgba(209,122,63,.1);border:1px solid rgba(209,122,63,.2);border-radius:10px;color:var(--accent);}
+.ind-chip-icon svg{width:20px;height:20px;}
+.ind-chip-name{font-family:'Space Grotesk',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:4px;}
+.ind-chip-sub{font-size:.74rem;color:var(--muted);}
+
+/* ===== WHY ANTECH ===== */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.why-card{
+  background:linear-gradient(160deg,var(--panel),var(--panel-2));
+  border:1px solid var(--border);border-radius:16px;
+  padding:32px 28px;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.why-card:hover{transform:translateY(-4px);border-color:rgba(209,122,63,.28);box-shadow:0 16px 48px -16px rgba(209,122,63,.18);}
+.why-icon{width:48px;height:48px;border-radius:13px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.2);display:grid;place-items:center;color:var(--accent);margin-bottom:20px;transition:transform .35s,background .3s;}
+.why-card:hover .why-icon{transform:rotate(-8deg) scale(1.1);background:var(--accent);color:#1a0804;}
+.why-icon svg{width:24px;height:24px;}
+.why-title{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:10px;letter-spacing:-.01em;}
+.why-body{font-size:.88rem;color:var(--muted);line-height:1.65;}
+
+/* ===== FAQ ===== */
+.faq-list{display:grid;gap:12px;max-width:840px;}
+.faq-item{border:1px solid var(--border);border-radius:12px;background:var(--panel);overflow:hidden;}
+.faq-q{width:100%;text-align:left;padding:18px 22px;background:none;border:none;color:var(--text);font-size:.95rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Manrope',sans-serif;transition:color .2s;}
+.faq-q:hover{color:var(--accent);}
+.faq-q svg{width:16px;height:16px;flex-shrink:0;transition:transform .3s cubic-bezier(.2,.8,.2,1);color:var(--dim);}
+.faq-item.open .faq-q svg{transform:rotate(45deg);color:var(--accent);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.8,.2,1),padding .3s;}
+.faq-item.open .faq-a{max-height:240px;padding:0 22px 18px;}
+.faq-a p{font-size:.9rem;color:var(--muted);line-height:1.7;}
+
+/* ===== CTA BAND ===== */
+.cta-band{padding:100px 32px;position:relative;}
+.cta-inner{max-width:760px;margin:0 auto;text-align:center;}
+.cta-inner h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.02em;margin-bottom:18px;}
+.cta-inner p{color:var(--muted);font-size:1.05rem;line-height:1.65;margin-bottom:32px;}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--border);background:var(--bg-2);padding:64px 32px 32px;position:relative;z-index:1;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.footer-brand p{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:16px;max-width:340px;}
+.footer-col h5{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:500;}
+.footer-col a{display:block;color:var(--muted);font-size:.9rem;padding:6px 0;transition:color .2s,padding-left .2s;position:relative;}
+.footer-col a::before{content:"→";position:absolute;left:-16px;opacity:0;color:var(--accent);transition:opacity .2s,left .2s;}
+.footer-col a:hover{padding-left:14px;color:var(--accent);}
+.footer-col a:hover::before{opacity:1;left:0;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--dim);flex-wrap:wrap;gap:14px;}
+
+/* ===== FLOATING CONTACT PANEL ===== */
+.fc-wrap{position:fixed;right:20px;bottom:88px;z-index:90;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.fc-body{background:var(--panel);border:1px solid var(--border);border-radius:32px;display:flex;flex-direction:column;align-items:center;padding:6px 0;gap:2px;box-shadow:0 8px 40px rgba(0,0,0,.35);max-height:260px;overflow:hidden;transition:max-height .42s cubic-bezier(.2,.8,.2,1),padding .42s cubic-bezier(.2,.8,.2,1),opacity .32s,transform .42s cubic-bezier(.2,.8,.2,1);transform-origin:bottom center;}
+.fc-wrap.fc-closed .fc-body{max-height:0;padding:0;opacity:0;transform:scaleY(.85) translateY(8px);pointer-events:none;}
+.fc-sep{width:28px;height:1px;background:var(--border);margin:4px 0;flex-shrink:0;}
+.fc-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--muted);border-radius:50%;transition:color .22s,background .22s,transform .22s;position:relative;flex-shrink:0;}
+.fc-btn svg{width:20px;height:20px;}
+.fc-btn:hover{color:var(--accent);background:var(--accent-soft);transform:scale(1.08);}
+.fc-btn::before{content:attr(data-tip);position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(6px);background:var(--panel);border:1px solid var(--border);color:var(--text);font-size:.7rem;font-weight:600;letter-spacing:.02em;padding:4px 10px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.fc-btn:hover::before{opacity:1;transform:translateY(-50%) translateX(0);}
+.fc-toggle{width:44px;height:44px;background:var(--panel);border:1px solid var(--border);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.3);transition:background .22s,box-shadow .22s,transform .22s;}
+.fc-toggle:hover{background:var(--accent-soft);box-shadow:0 6px 28px rgba(209,122,63,.3);transform:scale(1.06);}
+.fc-toggle .ic-grid{display:block;}
+.fc-toggle .ic-close{display:none;}
+.fc-wrap:not(.fc-closed) .fc-toggle .ic-grid{display:none;}
+.fc-wrap:not(.fc-closed) .fc-toggle .ic-close{display:block;}
+html[data-theme="light"] .fc-body,html[data-theme="light"] .fc-toggle{background:#fff;box-shadow:0 4px 24px rgba(15,30,60,.12);}
+html[data-theme="light"] .fc-btn::before{background:#fff;}
+
+/* Nav dropdown */
+.nav-item{position:relative;display:flex;align-items:center;}
+.nav-item > a{display:flex;align-items:center;gap:4px;}
+.nav-caret{width:13px;height:13px;flex-shrink:0;color:var(--dim);transition:transform .25s cubic-bezier(.2,.8,.2,1),color .2s;}
+.nav-item:hover > a .nav-caret{transform:rotate(180deg);color:var(--accent);}
+.nav-dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(-8px);background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:6px;min-width:272px;box-shadow:0 20px 48px -10px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);opacity:0;pointer-events:none;transition:opacity .2s cubic-bezier(.2,.8,.2,1),transform .2s cubic-bezier(.2,.8,.2,1);z-index:200;}
+.nav-item:hover .nav-dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}.nav-dropdown::before{content:"";position:absolute;top:-18px;left:0;right:0;height:18px;}
+.nav-drop-item{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:9px;transition:background .15s,color .15s;color:var(--muted);}
+.nav-drop-item:hover{background:var(--accent-soft);}
+.nav-drop-item:hover .ndi-icon{background:var(--accent);color:#1a0804;border-color:var(--accent);}
+.ndi-icon{width:32px;height:32px;border-radius:8px;flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid var(--border);display:grid;place-items:center;color:var(--accent);transition:background .15s,color .15s,border-color .15s;}
+.ndi-icon svg{width:15px;height:15px;}
+.ndi-name{font-size:.84rem;font-weight:600;color:var(--text);line-height:1.2;}
+.ndi-sub{font-size:.69rem;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.02em;}
+.nav-drop-sep{display:none;}
+@media(max-width:720px){
+  .nav-dropdown{position:static;transform:none !important;opacity:1 !important;pointer-events:auto;background:rgba(255,255,255,.03);border:none;border-radius:0;box-shadow:none;min-width:unset;padding:0;display:none;}
+  .nav-item.mob-open .nav-dropdown{display:block;}
+  .nav-item{flex-direction:column;align-items:stretch;}
+  .nav-item > a{justify-content:space-between;padding:13px 24px;}
+  .nav-drop-item{padding:10px 32px;}
+  .ndi-icon{display:none;}
+  .nav-drop-sep{display:none;}
+  .nav-caret{margin-right:0;transition:transform .25s;}
+  .nav-item.mob-open > a .nav-caret{transform:rotate(180deg);}
+}
+html[data-theme="light"] .nav-dropdown{box-shadow:0 12px 40px -10px rgba(15,30,60,.18),0 0 0 1px rgba(15,30,60,.05);}
+/* ===== RESPONSIVE ===== */
+.nav-links{transition:all .3s cubic-bezier(.2,.8,.2,1);}
+@media(max-width:768px){
+  .guarantees{grid-template-columns:repeat(2,1fr);}
+  .board-grid{grid-template-columns:repeat(2,1fr);}
+  .ind-strip{grid-template-columns:repeat(3,1fr);}
+  .why-grid{grid-template-columns:1fr;}
+  .process-grid,.process-row-2{grid-template-columns:repeat(3,1fr);gap:24px;}
+  .process-grid::before,.process-row-2::before{display:none;}
+  .step{padding:0;}
+}
+@media(max-width:720px){
+  .nav-links{display:flex;flex-direction:column;gap:0;position:fixed;top:64px;left:0;right:0;background:var(--panel);border-bottom:1px solid var(--border);padding:0;max-height:0;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.3);z-index:99;transition:max-height .35s cubic-bezier(.2,.8,.2,1),padding .35s;}
+  .nav-links.open{max-height:calc(100vh - 64px);overflow-y:auto;padding:8px 0 16px;}
+  .nav-links a{padding:13px 24px;border-radius:0;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.04);}
+  .nav-links a:last-child{border-bottom:none;}
+  .nav-cta{display:block;margin:12px 16px 4px;text-align:center;}
+  .nav-links{display:flex;}
+  .menu-btn{display:inline-flex;}
+  .nav-cta{display:none;}
+  .section{padding:48px 24px;}
+  .page-hero{padding:88px 24px 48px;}
+  .cta-band{padding:72px 24px;}
+  .wrap{padding:0 24px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  .svc-detail{grid-template-columns:1fr;gap:32px;padding:48px 0;}
+  .svc-panel{position:static;}
+  .hero-stats{flex-direction:column;}
+  .h-stat{border-right:none;border-bottom:1px solid var(--border);}
+  .h-stat:last-child{border-bottom:none;}
+  .section-title,.section-head h2,h2.section-title{font-size:1.55rem;line-height:1.22;}
+  .reveal{transform:translateY(14px);}
+  .reveal-left{transform:translateX(-20px);}
+  .reveal-right{transform:translateX(20px);}
+  .reveal-scale{transform:scale(.96);}
+  .reveal-blur{filter:blur(4px);}
+  .reveal-group .reveal-child{transform:translateY(10px);transition-duration:.45s !important;}
+}
+@media(max-width:480px){
+  html{font-size:15px;}
+  .section{padding:36px 16px;}
+  .page-hero{padding:80px 16px 40px;}
+  .cta-band{padding:48px 16px;}
+  .footer{padding:40px 16px 24px;}
+  .wrap{padding:0 16px;}
+  .nav-inner{padding:12px 16px;}
+  .page-title{font-size:2rem;line-height:1.1;}
+  .page-lead{font-size:.9rem;}
+  .section-title{font-size:1.35rem;}
+  .section-lead{font-size:.88rem;}
+  .kicker{font-size:.6rem;}
+  .guarantees{grid-template-columns:1fr;}
+  .board-grid{grid-template-columns:1fr;}
+  .ind-strip{grid-template-columns:repeat(2,1fr);}
+  .why-grid{grid-template-columns:1fr;}
+  .process-grid,.process-row-2{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:20px;}.footer-brand{grid-column:1/-1;}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px;}
+  .fc-wrap{right:12px;bottom:72px;}
+  .fc-btn{width:40px;height:40px;}
+  .fc-toggle{width:40px;height:40px;}
+  .fc-btn::before{display:none;}
+  .section-head{margin-bottom:32px;}
+  .page-cta-row{flex-direction:column;gap:8px;}
+  .page-cta-row .btn{text-align:center;justify-content:center;}
+  .asm-img{width:calc(100% + 32px);margin:-18px -16px 16px -16px;}
+}
+@media(max-width:600px){
+  .src-grid{grid-template-columns:1fr;}
+}
+
+/* ===== LIGHT MODE ===== */
+html[data-theme="light"] .nav{background:rgba(255,255,255,.78);}
+html[data-theme="light"] .nav.scrolled{background:rgba(255,255,255,.94);box-shadow:0 4px 24px -12px rgba(15,30,60,.15);}
+html[data-theme="light"] .nav-links{color:#4a5771;}
+html[data-theme="light"] .bg-orb{opacity:.14;filter:blur(70px);}
+html[data-theme="light"] .bg-orb.o3{opacity:.08;}
+html[data-theme="light"] .btn-ghost{background:rgba(15,30,60,.04);color:var(--text);}
+html[data-theme="light"] .btn-ghost:hover{background:rgba(15,30,60,.08);border-color:#b8c3d4;}
+html[data-theme="light"] .page-eyebrow{background:rgba(158,86,33,.08);border-color:rgba(158,86,33,.25);}
+html[data-theme="light"] .svc-panel,.board-card,.guarantee-card,.why-card,.ind-chip{box-shadow:0 2px 12px -6px rgba(15,30,60,.08);}
+html[data-theme="light"] .footer{background:linear-gradient(180deg,#eef2f8,#e4ebf4);}
+html[data-theme="light"] .nav-cta{color:#fff;}
+html[data-theme="light"] .btn-primary{color:#fff;}
+html[data-theme="light"] .svc-tab.active{color:#fff;}
+html[data-theme="light"] .nav-drop-item:hover .ndi-icon,
+html[data-theme="light"] .step:hover .step-num,
+html[data-theme="light"] .step:hover .step-icon,
+html[data-theme="light"] .why-card:hover .why-icon,
+html[data-theme="light"] .asm-card:hover .asm-icon,
+html[data-theme="light"] .guarantee-card:hover .gc-icon,
+html[data-theme="light"] .svc-detail-icon:hover,
+html[data-theme="light"] .test-card:hover .test-icon,
+html[data-theme="light"] .feat-list li:hover .feat-check{color:#fff;}
+html[data-theme="light"] .fc-toggle{color:#fff !important;}
+
+/* ===== LIGHTBOX ===== */
+.board-img{cursor:zoom-in;}
+.lbox-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .25s cubic-bezier(.2,.8,.2,1);
+}
+.lbox-overlay.lbox-open{opacity:1;pointer-events:auto;}
+.lbox-inner{
+  position:relative;max-width:min(90vw,900px);max-height:86vh;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  transform:scale(.94) translateY(12px);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.lbox-overlay.lbox-open .lbox-inner{transform:scale(1) translateY(0);}
+.lbox-img{
+  display:block;max-width:100%;max-height:78vh;
+  border-radius:14px;border:1px solid rgba(255,255,255,.08);
+  object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+}
+.lbox-caption{font-family:'Space Grotesk',sans-serif;font-size:.82rem;color:rgba(255,255,255,.55);letter-spacing:.04em;}
+.lbox-close{
+  position:fixed;top:20px;right:20px;
+  width:40px;height:40px;border-radius:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  color:#fff;display:grid;place-items:center;cursor:pointer;
+  transition:background .15s,transform .15s;
+}
+.lbox-close:hover{background:rgba(255,255,255,.16);transform:scale(1.08);}
+.lbox-close svg{width:18px;height:18px;}
+
+/* ===== ASM CARDS ===== */
+.asm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.asm-card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:18px;padding:32px;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s;}
+.asm-card:hover{border-color:rgba(209,122,63,.35);transform:translateY(-4px);box-shadow:0 16px 48px -20px rgba(209,122,63,.22);}
+.asm-img{width:calc(100% + 64px);margin:-32px -32px 24px -32px;height:200px;object-fit:cover;display:block;border-radius:18px 18px 0 0;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.asm-card:hover .asm-img{transform:scale(1.05);}
+.asm-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.2);display:grid;place-items:center;color:var(--accent);margin-bottom:20px;transition:background .3s,transform .3s;}
+.asm-icon svg{width:24px;height:24px;}
+.asm-card:hover .asm-icon{background:var(--accent);color:#1a0804;transform:rotate(-6deg);}
+.asm-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:10px;}
+.asm-desc{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:16px;}
+.asm-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.asm-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:3px 9px;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--dim);}
+
+/* ===== QC CARDS ===== */
+.qc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.qc-card{background:linear-gradient(135deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .3s,transform .3s,box-shadow .3s;}
+.qc-card:hover{border-color:rgba(209,122,63,.3);transform:translateY(-3px);box-shadow:0 12px 36px -12px rgba(209,122,63,.18);}
+.qc-num{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--accent);min-width:28px;line-height:1;transition:transform .3s,color .3s;}
+.qc-card:hover .qc-num{transform:scale(1.2);color:var(--accent-2);}
+.qc-body h4{font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:5px;}
+.qc-body p{font-size:.8rem;color:var(--muted);line-height:1.55;}
+
+/* ===== TEST CARDS ===== */
+.test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.test-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;transition:border-color .3s,transform .3s,box-shadow .3s;}
+.test-card:hover{border-color:rgba(209,122,63,.35);transform:translateY(-4px);box-shadow:0 12px 36px -16px rgba(209,122,63,.2);}
+.test-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-soft);border:1px solid rgba(209,122,63,.18);display:grid;place-items:center;color:var(--accent);margin-bottom:14px;transition:background .3s,transform .3s;}
+.test-icon svg{width:20px;height:20px;}
+.test-card:hover .test-icon{background:var(--accent);color:#1a0804;transform:scale(1.08);}
+.test-name{font-family:'Space Grotesk',sans-serif;font-size:.88rem;font-weight:600;margin-bottom:6px;}
+.test-desc{font-size:.76rem;color:var(--muted);line-height:1.5;}
+
+/* ===== SOURCE CARDS ===== */
+.src-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.src-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--panel);transition:border-color .3s,transform .3s;}
+.src-card:hover{border-color:rgba(209,122,63,.3);transform:translateY(-3px);}
+.src-card-head{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;}
+.src-badge{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:5px;font-weight:600;}
+.src-badge.kitted{background:rgba(255,255,255,.06);color:var(--muted);border:1px solid var(--border);}
+.src-badge.turnkey{background:rgba(209,122,63,.14);color:var(--accent);border:1px solid rgba(209,122,63,.2);}
+.src-card-body{padding:24px 28px;}
+.src-list{display:grid;gap:10px;}
+.src-item{font-size:.88rem;color:var(--muted);line-height:1.5;padding-left:20px;position:relative;}
+.src-item::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:.8rem;}
+@media(max-width:768px){.asm-grid{grid-template-columns:1fr 1fr;}.qc-grid{grid-template-columns:1fr 1fr;}.test-grid{grid-template-columns:1fr 1fr;}.src-grid{grid-template-columns:1fr;}}
+@media(max-width:480px){.asm-grid{grid-template-columns:1fr;}.qc-grid{grid-template-columns:1fr;}.test-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- Lightbox -->
+<div class="lbox-overlay" id="lbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lbox-close" id="lboxClose" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="lbox-inner">
+    <img class="lbox-img" id="lboxImg" src="" alt="">
+    <div class="lbox-caption" id="lboxCaption"></div>
+  </div>
+</div>
+
+<div class="bg-wash"></div>
+<div class="bg-orbs"><div class="bg-orb o1"></div><div class="bg-orb o2"></div><div class="bg-orb o3"></div></div>
+<canvas class="bg-canvas" id="bgCanvas"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- Floating Contact Panel -->
+<div class="fc-wrap" id="fcWrap">
+  <div class="fc-body" id="fcBody">
+    <a href="https://wa.me/6328XXXXXXXX" class="fc-btn" data-tip="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="mailto:info@antech-enviro.com" class="fc-btn" data-tip="Email Us" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+    </a>
+    <a href="tel:+6328XXXXXXXX" class="fc-btn" data-tip="Call Us" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.61 3.53 2 2 0 013.59 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.6A16 16 0 0015.4 16.1l.96-.9a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.9z"/></svg>
+    </a>
+    <div class="fc-sep"></div>
+    <a href="contact.html" class="fc-btn" data-tip="Contact Form" aria-label="Contact Form">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </a>
+  </div>
+  <button class="fc-toggle" id="fcToggle" aria-label="Toggle contact options" aria-expanded="true">
+    <svg class="ic-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+    <svg class="ic-grid" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+  </button>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Antech-Enviro Philippines, Inc.">
+      <img src="assets/logo-night.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-night"/>
+      <img src="assets/logo-day.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-day"/>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="nav-item">
+        <a href="about.html">About Us <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a class="nav-drop-item" href="about.html#intro">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Company Overview</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#certifications">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Quality Certifications</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#ipc3">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M12 12h.01"/><path d="M7 12h2M15 12h2M12 7v2M12 15v2"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">IPC Class 3 Capability</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#testing">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5m4 0h10m-5 4l4 4m-9-4l-4 4"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Testing &amp; Inspection</span></span>
+          </a>
+          <div class="nav-drop-sep"></div>
+          <a class="nav-drop-item" href="about.html#packaging">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Packaging &amp; Delivery</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#responsibility">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Corporate Responsibility</span></span>
+          </a>
+          <a class="nav-drop-item" href="about.html#faq">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">FAQ</span></span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="services.html">Services <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-dropdown">
+          <a class="nav-drop-item active" href="pcb-design.html">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01M12 12h.01"/><path d="M7 12h2M15 12h2M12 7v2M12 15v2"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">PCB Design &amp; Assembly</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#qra">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">QRA &amp; Inspection</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#consumables">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Production Consumables</span></span>
+          </a>
+          <div class="nav-drop-sep"></div>
+          <a class="nav-drop-item" href="services.html#probe">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Probe Card Solutions</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#reliability">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Reliability Testing</span></span>
+          </a>
+          <a class="nav-drop-item" href="services.html#technical">
+            <span class="ndi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
+            <span class="ndi-text"><span class="ndi-name">Technical Service</span></span>
+          </a>
+        </div>
+      </div>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="menu-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <!-- Decorative trace art -->
+  <svg class="hero-trace-bg" viewBox="0 0 500 500" fill="none" aria-hidden="true">
+    <path d="M50 250 H180 V120 H320 V80 H440" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
+    <path d="M50 310 H140 V380 H280 V420 H440" stroke="currentColor" stroke-width="1.5" opacity=".6"/>
+    <path d="M200 250 V170 H360 V90" stroke="currentColor" stroke-width="1" opacity=".4"/>
+    <path d="M280 310 V390 H400 V450" stroke="currentColor" stroke-width="1" opacity=".4"/>
+    <circle cx="180" cy="250" r="5" fill="currentColor" opacity=".8"/>
+    <circle cx="320" cy="120" r="5" fill="currentColor" opacity=".8"/>
+    <circle cx="140" cy="380" r="5" fill="currentColor" opacity=".8"/>
+    <circle cx="280" cy="310" r="5" fill="currentColor" opacity=".8"/>
+    <circle cx="200" cy="170" r="4" fill="currentColor" opacity=".5"/>
+    <circle cx="360" cy="90" r="4" fill="currentColor" opacity=".5"/>
+    <rect x="160" y="232" width="40" height="36" rx="4" stroke="currentColor" opacity=".5"/>
+    <rect x="300" y="102" width="40" height="36" rx="4" stroke="currentColor" opacity=".5"/>
+    <rect x="380" y="60" width="52" height="44" rx="4" stroke="currentColor" opacity=".5"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="page-hero-inner reveal">
+      <h1 class="page-title">From schematic to<br><em>functional board.</em></h1>
+      <p class="page-lead">End-to-end PCB design, fabrication, and SMT assembly for semiconductor, EMS, automotive, and medical manufacturers for demanding semiconductor, EMS, automotive, and medical applications worldwide. Multilayer, flex, rigid-flex, and HDI — engineered to specification and delivered on schedule.</p>
+      <div class="page-cta-row">
+        <a href="contact.html" class="btn btn-primary">
+          Request a Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#process" class="btn btn-ghost">See Our Process ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat">
+          <div class="h-stat-n">12<span>L+</span></div>
+          <div class="h-stat-l">Max Layer Count</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-n">3<span>mil</span></div>
+          <div class="h-stat-l">Min Line / Space</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-n">IPC<span>-2</span></div>
+          <div class="h-stat-l">Class 2 &amp; 3 Capable</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-n">48<span>hr</span></div>
+          <div class="h-stat-l">Prototype Turnaround</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="guarantees reveal-group">
+      <div class="guarantee-card reveal-child">
+        <div class="gc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="gc-title">Quality Guaranteed</div>
+        <div class="gc-body">IPC-A-610 Class 2 and Class 3 workmanship standards. Every board is electrically tested and visually inspected before shipment.</div>
+      </div>
+      <div class="guarantee-card reveal-child">
+        <div class="gc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="gc-title">Fast Turnaround</div>
+        <div class="gc-body">Prototype boards in 48–72 hours. Production runs on schedule. Local warehousing means no overseas shipping delays on materials.</div>
+      </div>
+      <div class="guarantee-card reveal-child">
+        <div class="gc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="gc-title">Local Engineering</div>
+        <div class="gc-body">Philippine-based design engineers for DFM review, schematic capture, and layout. No overseas escalation queue — direct access to the team.</div>
+      </div>
+      <div class="guarantee-card reveal-child">
+        <div class="gc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="gc-title">No Minimum Order</div>
+        <div class="gc-body">Single-prototype to full production volume. Flexible batch sizing lets your engineering team iterate fast without large upfront commitments.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSEMBLY TYPES -->
+<section class="section section-alt" id="assembly">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">01 / Assembly Types</div>
+      <h2 class="section-title">Every assembly method under one roof.</h2>
+      <p class="section-lead">From fine-pitch SMT to heavy through-hole and complex mixed builds — we handle the full spectrum of PCB assembly for your production needs.</p>
+    </div>
+    <div class="asm-grid reveal-group">
+      <div class="asm-card reveal-child">
+        <img src="add%20assets/card%20image%20v10/surface%20mount%20technology%20%28smt%29.jpg" alt="Surface Mount Technology SMT line in operation" class="asm-img"/>
+        <div class="asm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h4M14 14h4"/></svg></div>
+        <div class="asm-title">Surface Mount Technology (SMT)</div>
+        <div class="asm-desc">High-speed stencil printing, pick-and-place, and nitrogen reflow for dense, fine-pitch assemblies. Handles passive components down to 01005 and ICs from BGA to QFN with 0.4 mm pitch.</div>
+        <div class="asm-tags">
+          <span class="asm-tag">01005 passives</span><span class="asm-tag">0.4mm BGA</span><span class="asm-tag">QFN / QFP</span><span class="asm-tag">PoP</span><span class="asm-tag">Double-sided</span>
+        </div>
+      </div>
+      <div class="asm-card reveal-child">
+        <img src="add%20assets/card%20image%20v10/Through-Hole%20Technology%20%28THT%29.jpg" alt="Through-Hole Technology soldering process" class="asm-img"/>
+        <div class="asm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="4" r="1.5"/><circle cx="12" cy="20" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="20" cy="12" r="1.5"/></svg></div>
+        <div class="asm-title">Through-Hole Technology (THT)</div>
+        <div class="asm-desc">Selective and wave soldering for connectors, transformers, electrolytic capacitors, and power components requiring the mechanical strength of through-hole mounting.</div>
+        <div class="asm-tags">
+          <span class="asm-tag">Wave soldering</span><span class="asm-tag">Selective soldering</span><span class="asm-tag">Press-fit</span><span class="asm-tag">Hand solder</span>
+        </div>
+      </div>
+      <div class="asm-card reveal-child">
+        <img src="add%20assets/card%20image%20v10/Mixed%20Assembly.jpg" alt="Mixed Assembly board" class="asm-img"/>
+        <div class="asm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg></div>
+        <div class="asm-title">Mixed Assembly</div>
+        <div class="asm-desc">SMT and THT combined on the same board — optimised sequencing to avoid thermal re-work and protect already-placed components. Full DFM review before first article.</div>
+        <div class="asm-tags">
+          <span class="asm-tag">SMT + THT</span><span class="asm-tag">DFM review</span><span class="asm-tag">First article</span><span class="asm-tag">Conformal coat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD TYPES -->
+<section class="section" id="board-types">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">02 / Board Types</div>
+      <h2 class="section-title">Every PCB format your design requires.</h2>
+      <p class="section-lead">From simple 2-layer prototypes to complex multilayer and rigid-flex assemblies — we design, fabricate, and assemble every board type used in modern electronics manufacturing.</p>
+    </div>
+    <div class="board-grid reveal-group">
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/rigid-pcb.webp" alt="Rigid PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.01</div>
+          <div class="board-title">Rigid PCB</div>
+          <div class="board-desc">Standard FR4-based boards for general-purpose electronics. Single-sided, double-sided, and multilayer up to 12+ layers with controlled impedance.</div>
+          <div class="board-specs">
+            <span class="board-spec">FR4 / Rogers</span>
+            <span class="board-spec">1–12L</span>
+            <span class="board-spec">3 mil min track</span>
+            <span class="board-spec">HASL / ENIG</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/flex-pcb.webp" alt="Flexible PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.02</div>
+          <div class="board-title">Flexible PCB (FPC)</div>
+          <div class="board-desc">Polyimide-based flex circuits for space-constrained assemblies, wearables, and dynamic-bend applications. Single and double-layer flex.</div>
+          <div class="board-specs">
+            <span class="board-spec">Polyimide</span>
+            <span class="board-spec">1–2L</span>
+            <span class="board-spec">Dynamic bend</span>
+            <span class="board-spec">ZIF connectors</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/rigid-flex.jpg" alt="Rigid-Flex PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.03</div>
+          <div class="board-title">Rigid-Flex PCB</div>
+          <div class="board-desc">Combined rigid and flexible zones in a single board — eliminating connectors and reducing assembly cost for medical devices, aerospace, and industrial controls.</div>
+          <div class="board-specs">
+            <span class="board-spec">FR4 + Polyimide</span>
+            <span class="board-spec">4–8L</span>
+            <span class="board-spec">Medical grade</span>
+            <span class="board-spec">IPC-2223</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/multilayer-pcb.webp" alt="Multilayer PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.04</div>
+          <div class="board-title">Multilayer PCB</div>
+          <div class="board-desc">4 to 12+ layer stackups with controlled impedance, buried vias, and blind vias. Designed for high-speed digital and mixed-signal applications.</div>
+          <div class="board-specs">
+            <span class="board-spec">4–12+ layers</span>
+            <span class="board-spec">Blind / buried via</span>
+            <span class="board-spec">100Ω ±10%</span>
+            <span class="board-spec">High-speed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/hdi-pcb.avif" alt="HDI Microvia PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.05</div>
+          <div class="board-title">HDI / Microvia</div>
+          <div class="board-desc">High-Density Interconnect boards with laser-drilled microvias for BGA fanout, advanced IC packages, and miniaturized consumer and medical electronics.</div>
+          <div class="board-specs">
+            <span class="board-spec">Laser via ≤0.1mm</span>
+            <span class="board-spec">BGA fanout</span>
+            <span class="board-spec">Any-layer HDI</span>
+            <span class="board-spec">0.4mm BGA pitch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-card reveal-child">
+        <img class="board-img" src="assets/pcb-design/metal-core-pcb.png" alt="Metal Core PCB" loading="lazy">
+        <div class="board-body">
+          <div class="board-num">B.06</div>
+          <div class="board-title">Metal Core PCB (MCPCB)</div>
+          <div class="board-desc">Aluminum or copper-core substrates for high-power LED drivers, power electronics, and motor control applications requiring superior thermal management.</div>
+          <div class="board-specs">
+            <span class="board-spec">Al / Cu core</span>
+            <span class="board-spec">1–2L</span>
+            <span class="board-spec">1–3 W/m·K</span>
+            <span class="board-spec">LED / Power</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN & FABRICATION PROCESS -->
+<section class="section" id="process" style="background:linear-gradient(180deg,transparent,rgba(209,122,63,.03),transparent);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">03 / Process</div>
+      <h2 class="section-title">Ten stages. Zero guesswork.</h2>
+      <p class="section-lead">Every project follows a structured workflow from requirements capture through packaged delivery — with customer visibility at each gate.</p>
+    </div>
+
+    <div class="process-grid reveal-group">
+      <div class="step reveal-child">
+        <div class="step-num">01
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="step-title">Requirements Capture</div>
+        <div class="step-body">Schematic, BOM, mechanical envelope, and target application reviewed with your engineering team.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">02
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="step-title">Schematic Review</div>
+        <div class="step-body">Design rule check, net verification, and DFM recommendations before layout begins.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">03
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h8M8 12h8M8 17h5"/></svg>
+        </div>
+        <div class="step-title">Layer Stackup</div>
+        <div class="step-body">Dielectric selection, impedance targets, and via strategy confirmed per IPC-2141 and customer spec.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">04
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3"/></svg>
+        </div>
+        <div class="step-title">Component Placement</div>
+        <div class="step-body">Thermal, EMI, and signal-integrity-driven placement with thermal pad and keepout zone compliance.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">05
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </div>
+        <div class="step-title">Routing &amp; DRC</div>
+        <div class="step-body">Manual and auto-route with impedance-controlled traces, differential pairs, and full design rule check sign-off.</div>
+      </div>
+    </div>
+
+    <div class="process-row-2 reveal-group" style="margin-top:48px;">
+      <div class="step reveal-child">
+        <div class="step-num">06
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <div class="step-title">Gerber Output</div>
+        <div class="step-body">Customer-reviewed Gerbers, ODB++, drill files, assembly drawings, and fab notes released to fabrication partner.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">07
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20V10l-6 4V10l-6 4V4H4v16"/></svg>
+        </div>
+        <div class="step-title">Fabrication</div>
+        <div class="step-body">Inner layer imaging, lamination, precision drilling, plating, outer layer patterning, soldermask, and surface finish.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">08
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="step-title">SMT Assembly</div>
+        <div class="step-body">Stencil printing, pick-and-place, reflow soldering, selective soldering for THT, and conformal coating on request.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">09
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M11 7v4l2 2M16 16l5 5"/></svg>
+        </div>
+        <div class="step-title">Inspection &amp; Test</div>
+        <div class="step-body">AOI, flying-probe electrical test, ICT, and functional test executed per agreed test plan with full test records.</div>
+      </div>
+      <div class="step reveal-child">
+        <div class="step-num">10
+          <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="13" height="11" rx="1"/><path d="M14 9h4l3 3v5h-7V9z"/><circle cx="5.5" cy="19" r="2"/><circle cx="17.5" cy="19" r="2"/></svg>
+        </div>
+        <div class="step-title">Delivery</div>
+        <div class="step-body">ESD-safe packaging, CoC documentation, and same-country delivery to your facility — no customs delays.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILED SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">04 / Services Detail</div>
+      <h2 class="section-title">What we deliver at each stage.</h2>
+    </div>
+    <div class="svc-tabs reveal">
+      <button class="svc-tab active" data-target="svc-layout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+        <span>PCB Layout &amp; Design</span>
+      </button>
+      <button class="svc-tab" data-target="svc-fab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20V10l-6 4V10l-6 4V4H4v16"/></svg>
+        <span>PCB Fabrication</span>
+      </button>
+      <button class="svc-tab" data-target="svc-smt">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>SMT &amp; Through-Hole Assembly</span>
+      </button>
+    </div>
+
+    <div class="svc-list">
+
+      <!-- PCB Layout Design -->
+      <div class="svc-detail tab-active" id="svc-layout">
+        <div>
+          <div class="svc-detail-num">D.01</div>
+          <div class="svc-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+          </div>
+          <h2>PCB Layout &amp; Design</h2>
+          <p>Our engineers work from your schematic in Altium Designer, KiCad, or Eagle — producing a routed, DRC-clean layout optimized for your specific layer count, impedance requirements, and assembly process. We perform DFM review before releasing Gerbers, flagging component footprint issues, minimum annular ring violations, and solder mask slivers before they become fabrication problems.</p>
+          <p>For high-speed designs, we apply signal integrity analysis for differential pairs, length-matched data buses, and power delivery network decoupling — ensuring your board performs in production, not just in the lab.</p>
+          <ul class="feat-list">
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Altium Designer, KiCad, Eagle — match your existing toolchain</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Controlled impedance routing — 50Ω, 90Ω, 100Ω differential pairs</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>DFM review included — footprint, clearance, and assembly checks</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Full Gerber package with assembly drawings and BOM cross-reference</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Signal integrity analysis for DDR, PCIe, USB 3.x, and high-speed I/O</li>
+          </ul>
+        </div>
+        <div class="svc-panel">
+          <div class="svc-panel-head">Design Capabilities</div>
+          <table class="spec-table-mini">
+            <tr><td>Min Track/Space</td><td>3 / 3 mil</td></tr>
+            <tr><td>Min Via Drill</td><td>0.2 mm</td></tr>
+            <tr><td>Max Layer Count</td><td>12+</td></tr>
+            <tr><td>Board Thickness</td><td>0.4 – 3.2 mm</td></tr>
+            <tr><td>Max Board Size</td><td>500 × 600 mm</td></tr>
+            <tr><td>Surface Finish</td><td>HASL, ENIG, OSP</td></tr>
+          </table>
+          <div class="panel-note"><b>EDA Tools:</b> Altium Designer, KiCad 7, Eagle, Cadence Allegro (import/export). Deliverables include Gerber RS-274X, ODB++, IPC-2581, and native project files.</div>
+        </div>
+      </div>
+
+      <!-- PCB Fabrication -->
+      <div class="svc-detail" id="svc-fab">
+        <div>
+          <div class="svc-detail-num">D.02</div>
+          <div class="svc-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20V10l-6 4V10l-6 4V4H4v16"/></svg>
+          </div>
+          <h2>PCB Fabrication</h2>
+          <p>We manage fabrication through qualified partner facilities with full IPC-6012 Class 2 and Class 3 capability. All substrates undergo incoming material inspection, and completed bare boards receive electrical continuity and isolation testing on flying-probe fixtures before leaving the fab.</p>
+          <p>For impedance-critical designs, we maintain controlled-impedance coupon testing on every panel, with TDR measurement reports included in the quality pack. Certificates of conformance and UL-marked laminates are available on request.</p>
+          <ul class="feat-list">
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>IPC-6012 Class 2 and Class 3 fabrication compliance</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Flying-probe electrical test on every bare board</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Impedance coupons with TDR reports for controlled-impedance boards</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Surface finishes: HASL (lead-free), ENIG, OSP, immersion silver, hard gold</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>48-hour express prototype with full quality documentation</li>
+          </ul>
+        </div>
+        <div class="svc-panel">
+          <div class="svc-panel-head">Fabrication Specs</div>
+          <table class="spec-table-mini">
+            <tr><td>Prototype Lead Time</td><td>48 – 72 hr</td></tr>
+            <tr><td>Production Lead Time</td><td>5 – 10 days</td></tr>
+            <tr><td>Copper Weight</td><td>0.5 – 6 oz</td></tr>
+            <tr><td>Aspect Ratio</td><td>up to 10:1</td></tr>
+            <tr><td>Soldermask</td><td>LPI, any colour</td></tr>
+            <tr><td>Silkscreen</td><td>Both sides</td></tr>
+          </table>
+          <div class="panel-note"><b>Certifications available:</b> IPC-6012, UL94-V0 laminate, RoHS-compliant process, IATF 16949 supply chain on request for automotive applications.</div>
+        </div>
+      </div>
+
+      <!-- SMT Assembly -->
+      <div class="svc-detail" id="svc-smt">
+        <div>
+          <div class="svc-detail-num">D.03</div>
+          <div class="svc-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h2>SMT &amp; Through-Hole Assembly</h2>
+          <p>Surface mount assembly from solder paste printing through reflow, covering 0201 passives, fine-pitch QFP, BGA, LGA, and CSP packages. Our assembly line operates under IPC-A-610 acceptance criteria, with AOI and X-ray inspection available for BGA and hidden-joint verification.</p>
+          <p>Through-hole components are processed via selective soldering or hand soldering per IPC-A-610. For mixed-technology boards, we coordinate the full process sequence to minimise thermal excursions on heat-sensitive components.</p>
+          <ul class="feat-list">
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>0201 minimum component size — fine-pitch down to 0.4 mm BGA</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>AOI on every board, X-ray for BGA and LGA joints</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Lead-free and leaded solder process available</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Conformal coating (acrylic, silicone, urethane) for harsh environments</li>
+            <li><span class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>BOM procurement support and component sourcing from authorised distributors</li>
+          </ul>
+        </div>
+        <div class="svc-panel">
+          <div class="svc-panel-head">Assembly Capabilities</div>
+          <table class="spec-table-mini">
+            <tr><td>Min Component</td><td>0201 (0.6×0.3 mm)</td></tr>
+            <tr><td>Min BGA Pitch</td><td>0.4 mm</td></tr>
+            <tr><td>Max Board Size</td><td>450 × 500 mm</td></tr>
+            <tr><td>Placement Accuracy</td><td>±30 µm</td></tr>
+            <tr><td>Inspection</td><td>AOI + X-ray</td></tr>
+            <tr><td>IPC Standard</td><td>IPC-A-610 Class 2/3</td></tr>
+          </table>
+          <div class="panel-note"><b>Turnkey or consignment:</b> We can procure your BOM from authorised distributors, or assemble from customer-supplied components. Partial kitting also accepted.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY CONTROL -->
+<section class="section section-alt" id="quality">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">05 / Quality Control</div>
+      <h2 class="section-title">Six checkpoints. Zero escapes.</h2>
+      <p class="section-lead">Every build passes through six independent inspection stages — each with documented records you can reference against your IPC audit requirements.</p>
+    </div>
+    <div class="qc-grid reveal-group">
+      <div class="qc-card reveal-child">
+        <div class="qc-num">01</div>
+        <div class="qc-body"><h4>IQC — Incoming Quality Control</h4><p>All components and bare boards inspected on receipt. Date codes, quantity, and package marking verified before kitting. Counterfeit screening available on request.</p></div>
+      </div>
+      <div class="qc-card reveal-child">
+        <div class="qc-num">02</div>
+        <div class="qc-body"><h4>SPI — Solder Paste Inspection</h4><p>3D solder paste volume, area, and offset measured at every deposit after printing. Boards failing SPI are re-printed — not sent to placement.</p></div>
+      </div>
+      <div class="qc-card reveal-child">
+        <div class="qc-num">03</div>
+        <div class="qc-body"><h4>First Article Inspection</h4><p>After placement, the first board of every job is manually verified by an engineer before the full run is approved. Component identity, polarity, and position confirmed against BOM.</p></div>
+      </div>
+      <div class="qc-card reveal-child">
+        <div class="qc-num">04</div>
+        <div class="qc-body"><h4>AOI — Automated Optical Inspection</h4><p>Post-reflow AOI detects missing components, solder bridges, lifted leads, tombstoning, and polarity errors with photographic evidence logged per board.</p></div>
+      </div>
+      <div class="qc-card reveal-child">
+        <div class="qc-num">05</div>
+        <div class="qc-body"><h4>X-Ray — Hidden Joint Inspection</h4><p>BGA and other hidden-joint packages inspected by X-ray for voiding, cold joints, and bridging not visible to AOI. Sampling rate or 100% inspection per your spec.</p></div>
+      </div>
+      <div class="qc-card reveal-child">
+        <div class="qc-num">06</div>
+        <div class="qc-body"><h4>Final QA &amp; Shipment Inspection</h4><p>IPC-A-610 visual workmanship check by a certified IPC-CIS. CoC, test records, and traveller documentation packaged with every shipment.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTING SERVICES -->
+<section class="section" id="testing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">06 / Testing Services</div>
+      <h2 class="section-title">Test coverage for every build class.</h2>
+      <p class="section-lead">From simple AOI to full functional validation — we match test coverage to your product's risk profile and qualification requirements.</p>
+    </div>
+    <div class="test-grid reveal-group">
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M11 7v4l2 2M16 16l5 5"/></svg></div>
+        <div class="test-name">AOI Testing</div>
+        <div class="test-desc">Automated optical inspection on every board post-reflow. Detects placement errors, bridges, and opens with full image archive.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div>
+        <div class="test-name">X-Ray Inspection</div>
+        <div class="test-desc">BGA solder joint analysis — voiding percentage, bridging, and cold joints in hidden packages verified to IPC-7095 criteria.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="test-name">In-Circuit Test (ICT)</div>
+        <div class="test-desc">Bed-of-nails fixture tests component values, opens, shorts, and basic function. Ideal for mid-to-high volume production boards.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="test-name">Flying Probe</div>
+        <div class="test-desc">Fixtureless electrical test for prototype and low-volume builds. Checks opens, shorts, and component values without a dedicated ICT fixture.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="test-name">Functional Test (FCT)</div>
+        <div class="test-desc">Board powered up and exercised through its operating modes using customer-supplied or Antech-developed test jigs and scripts.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="test-name">IC Programming</div>
+        <div class="test-desc">Microcontroller and FPGA device programming during assembly. Firmware version controlled and verified post-programming before shipment.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="test-name">Environmental Stress</div>
+        <div class="test-desc">Burn-in, thermal cycling, and humidity exposure for accelerated life testing. Supported by our QRA laboratory for full qualification packages.</div>
+      </div>
+      <div class="test-card reveal-child">
+        <div class="test-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <div class="test-name">Conformal Coating</div>
+        <div class="test-desc">Acrylic, silicone, or polyurethane coating applied to customer spec for protection against humidity, corrosion, and vibration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENT SOURCING -->
+<section class="section section-alt" id="sourcing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">07 / Component Sourcing</div>
+      <h2 class="section-title">Kitted or turnkey — your choice.</h2>
+      <p class="section-lead">Bring your own parts or let us source everything. Either way, every component goes through IQC before it touches your board.</p>
+    </div>
+    <div class="src-grid reveal-group">
+      <div class="src-card reveal-child">
+        <div class="src-card-head">
+          <span class="src-badge kitted">Kitted Assembly</span>
+          <h3>You supply the parts</h3>
+        </div>
+        <div class="src-card-body">
+          <div class="src-list">
+            <div class="src-item">You deliver pre-kitted components matched to your BOM</div>
+            <div class="src-item">Antech performs incoming inspection on all supplied parts before assembly</div>
+            <div class="src-item">Ideal when you have existing supplier relationships or approved vendor lists</div>
+            <div class="src-item">Any shortages or discrepancies flagged before build commences — no surprises mid-run</div>
+            <div class="src-item">Consigned and customer-owned inventory managed with barcode tracking</div>
+          </div>
+        </div>
+      </div>
+      <div class="src-card reveal-child">
+        <div class="src-card-head">
+          <span class="src-badge turnkey">Turnkey Assembly</span>
+          <h3>We source everything</h3>
+        </div>
+        <div class="src-card-body">
+          <div class="src-list">
+            <div class="src-item">BOM submitted — we quote and procure all components through authorised distribution channels</div>
+            <div class="src-item">Date code and authenticity verified; counterfeit screening available for critical ICs</div>
+            <div class="src-item">Rare and long-lead parts sourced through our regional supply chain network</div>
+            <div class="src-item">Part crosses and approved substitutes offered with customer sign-off before procurement</div>
+            <div class="src-item">Single invoice covers components and assembly — simplifies your PO process</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES-REMOVED -->
+<section class="section" id="industries" style="display:none;">
+  <div class="wrap">
+    <div class="ind-strip reveal-group">
+      <div class="ind-chip reveal-child">
+        <span class="ind-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/><circle cx="12" cy="12" r="7" stroke-dasharray="2 3"/></svg></span>
+        <div class="ind-chip-name">Semiconductor</div>
+        <div class="ind-chip-sub">Test fixtures, probe boards, handler interfaces</div>
+      </div>
+      <div class="ind-chip reveal-child">
+        <span class="ind-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v5H7zM11 6h2v7h-2zM15 10h2v3h-2z"/></svg></span>
+        <div class="ind-chip-name">EMS / Electronics</div>
+        <div class="ind-chip-sub">Contract assembly, BGA rework, PCB repair</div>
+      </div>
+      <div class="ind-chip reveal-child">
+        <span class="ind-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><circle cx="12" cy="16" r="1"/><circle cx="20" cy="16" r="1"/></svg></span>
+        <div class="ind-chip-name">Automotive</div>
+        <div class="ind-chip-sub">IATF 16949, AEC-Q grade, high-temp stackups</div>
+      </div>
+      <div class="ind-chip reveal-child">
+        <span class="ind-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+        <div class="ind-chip-name">Medical Devices</div>
+        <div class="ind-chip-sub">IPC Class 3, rigid-flex, ISO 13485 chain</div>
+      </div>
+      <div class="ind-chip reveal-child">
+        <span class="ind-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l8-7 8 7v10"/><path d="M10 20v-5h4v5"/><path d="M9 10h1v1H9zM14 10h1v1h-1z"/></svg></span>
+        <div class="ind-chip-name">Industrial</div>
+        <div class="ind-chip-sub">Motor control, PLC I/O boards, power electronics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ANTECH -->
+<section class="section" id="why-antech">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">08 / Why Antech</div>
+      <h2 class="section-title">Single-source. Local engineers. No delays.</h2>
+      <p class="section-lead">Most Philippine manufacturers juggle separate vendors for design, fabrication, and assembly. We combine all three under one roof, with engineers based in-country.</p>
+    </div>
+    <div class="why-grid reveal-group">
+      <div class="why-card reveal-child">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <div class="why-title">One Vendor, Full Cycle</div>
+        <div class="why-body">Design, fabrication, and assembly managed from a single point of contact. No handoff errors, no finger-pointing between suppliers, and one purchase order covering the complete scope.</div>
+      </div>
+      <div class="why-card reveal-child">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="why-title">Responsive Engineering Support</div>
+        <div class="why-body">Your design is handled by dedicated engineers available during your business hours — same-day feedback, fast design reviews, and direct access for change orders without queues or delays.</div>
+      </div>
+      <div class="why-card reveal-child">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="13" height="11" rx="1"/><path d="M14 9h4l3 3v5h-7V9z"/><circle cx="5.5" cy="19" r="2"/><circle cx="17.5" cy="19" r="2"/></svg>
+        </div>
+        <div class="why-title">Local Stock, Fast Delivery</div>
+        <div class="why-body">Common substrates, soldermask materials, and surface finish chemicals held in our Parañaque facility. No import lead time on standard materials — prototype boards within 48 hours of Gerber approval.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">09 / FAQ</div>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">
+          What files do I need to provide to get a quote?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <div class="faq-a"><p>For layout design: schematic (PDF or native EDA file), BOM, and mechanical drawings. For fabrication only: Gerber RS-274X files, drill file (Excellon), and a readme with stackup and impedance requirements. For assembly: Gerbers, BOM with manufacturer part numbers, and centroid (pick-and-place) file. If you have an existing design but no Gerbers, we can extract them from your native files.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Can you handle BGA and fine-pitch components?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes. Our assembly line handles BGA down to 0.4 mm pitch and CSP packages. X-ray inspection is available for all hidden-joint verification. For HDI designs requiring laser-drilled microvias to fan out fine-pitch BGA, we coordinate with our fab partner for the appropriate any-layer HDI stackup.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          How do you handle component sourcing?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <div class="faq-a"><p>We offer full turnkey (we source all components from authorised distributors — Avnet, Mouser, Digi-Key, or local PH distributors), partial kitting (you supply the long-lead or controlled components, we source the rest), and consignment assembly (you supply all components, we assemble). We do not purchase from grey-market or unverified brokers.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Do you support automotive-grade requirements?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes. For automotive applications we support AEC-Q component selection guidance, IATF 16949-aligned supplier chain for fabrication, high-temperature laminates (Tg 170+), and extended IPC-A-610 Class 3 inspection criteria. We can generate PPAP documentation for your incoming quality records on request.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          What is the minimum order quantity?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <div class="faq-a"><p>There is no minimum order quantity. We regularly run single-board prototypes for R&D teams and scale to production volumes of thousands of units for EMS customers. Pricing is naturally more economical at higher volumes, but we do not impose a minimum.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <div class="kicker" style="display:block;text-align:center;padding-left:0;">Start a project</div>
+      <h2>Ready to build your next board?</h2>
+      <p>Send us your schematic, Gerbers, or just a napkin sketch — our engineers will review your design and come back with a quote and DFM feedback, usually within one business day.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn btn-primary">
+          Request a Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-ghost">View All Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top reveal-group">
+      <div class="footer-brand reveal-child">
+        <a href="index.html">
+          <img src="assets/logo-night.png" alt="Antech-Enviro" class="brand-logo brand-logo-night" style="height:38px;"/>
+          <img src="assets/logo-day.png" alt="Antech-Enviro" class="brand-logo brand-logo-day" style="height:38px;"/>
+        </a>
+        <p>Technical distributor and service partner to the semiconductor, electronics, and PCB industries since 1999.</p>
+      </div>
+      <div class="footer-col reveal-child">
+        <h5>Services</h5>
+        <a href="services.html">QRA &amp; Inspection</a>
+        <a href="pcb-design.html">PCB Design &amp; Assembly</a>
+        <a href="services.html">Production Consumables</a>
+        <a href="services.html">Probe Card Solutions</a>
+        <a href="services.html">Reliability Testing</a>
+      </div>
+      <div class="footer-col reveal-child">
+        <h5>Company</h5>
+        <a href="index.html#about">About Antech</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col reveal-child">
+        <h5>Contact</h5>
+        <a href="mailto:info@antech-enviro.com">info@antech-enviro.com</a>
+        <a href="tel:+6328XXXXXXXX">+63 (2) 8XXX XXXX</a>
+        <a href="#">Parañaque City, Metro Manila</a>
+        <a href="#">Singapore Representative Office</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Antech-Enviro Phils., Inc. All rights reserved.</span>
+      <span>Founded 1999 · Parañaque, Philippines · IPC Class 2 &amp; 3</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll progress bar
+const scrollBar = document.getElementById('scrollBar');
+window.addEventListener('scroll',()=>{
+  const p = window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
+  if(scrollBar) scrollBar.style.width = (p*100)+'%';
+},{passive:true});
+
+// Nav scroll shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled',window.scrollY>12); },{passive:true});
+
+// Mobile menu
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+if(menuBtn && navLinks){
+  menuBtn.addEventListener('click',()=>{
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open);
+    menuBtn.innerHTML = open
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(a.parentElement.classList.contains('nav-item')&&a.parentElement.querySelector('.nav-dropdown'))return;navLinks.classList.remove('open');}));
+}
+/* Mobile nav-item dropdown tap toggle */
+document.querySelectorAll('.nav-item > a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    if(window.innerWidth > 720) return;
+    e.preventDefault();
+    const item = a.closest('.nav-item');
+    const wasOpen = item.classList.contains('mob-open');
+    document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('mob-open'));
+    if(!wasOpen) item.classList.add('mob-open');
+  });
+});
+
+// Theme toggle
+(function(){
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('themeIcon');
+  const MOON = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+  const SUN  = '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>';
+  const saved = localStorage.getItem('antech-theme')||'dark';
+  document.documentElement.setAttribute('data-theme',saved);
+  if(icon) icon.innerHTML = saved==='dark'?MOON:SUN;
+  if(toggle) toggle.addEventListener('click',()=>{
+    const cur = document.documentElement.getAttribute('data-theme')||'dark';
+    const next = cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('antech-theme',next);
+    if(icon) icon.innerHTML = next==='dark'?MOON:SUN;
+  });
+})();
+
+// Cursor glow
+(function(){
+  const el = document.getElementById('cursorGlow');
+  if(!el||window.matchMedia('(hover:none)').matches) return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,cx=mx,cy=my,raf=false;
+  window.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!raf){raf=true;requestAnimationFrame(function loop(){cx+=(mx-cx)*.08;cy+=(my-cy)*.08;el.style.transform=`translate(${cx-270}px,${cy-270}px)`;raf=false;});}},{passive:true});
+  document.body.classList.add('cursor-ready');
+})();
+
+// Service tabs
+(function(){
+  const tabs = document.querySelectorAll('.svc-tab');
+  const panels = document.querySelectorAll('.svc-detail');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => {
+        p.classList.remove('tab-active');
+        p.style.animation = '';
+      });
+      btn.classList.add('active');
+      const target = document.getElementById(btn.dataset.target);
+      if (target) {
+        target.classList.add('tab-active');
+        target.style.animation = 'tabFadeIn .35s cubic-bezier(.2,.8,.2,1) both';
+      }
+    });
+  });
+})();
+
+// Reveal on scroll
+(function(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-group').forEach(el=>io.observe(el));
+})();
+
+// Particle canvas
+(function particles(){
+  const c = document.getElementById('bgCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  const isMobile = window.innerWidth < 768;
+  if(isMobile){ c.style.display='none'; return; }
+  let w,h,dpr,pts=[];
+  const N = Math.min(50,Math.max(25,Math.floor(window.innerWidth/28)));
+  function resize(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.width=window.innerWidth*dpr;h=c.height=window.innerHeight*dpr;c.style.width=window.innerWidth+'px';c.style.height=window.innerHeight+'px';}
+  resize();
+  window.addEventListener('resize',resize);
+  for(let i=0;i<N;i++) pts.push({x:Math.random()*window.innerWidth*dpr,y:Math.random()*window.innerHeight*dpr,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr,r:(Math.random()*1.2+.6)*dpr});
+  let mx=-9999,my=-9999,lastT=0;
+  window.addEventListener('pointermove',e=>{mx=e.clientX*dpr;my=e.clientY*dpr;},{passive:true});
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  let pCol=css('--particle')||'rgba(209,122,63,.6)',lCol=css('--particle-link')||'rgba(209,122,63,.15)';
+  document.getElementById('themeToggle')?.addEventListener('click',()=>setTimeout(()=>{pCol=css('--particle');lCol=css('--particle-link');},50));
+  function loop(ts){
+    if(ts-lastT<33){requestAnimationFrame(loop);return;}
+    lastT=ts;
+    ctx.clearRect(0,0,w,h);
+    for(let i=0;i<pts.length;i++){
+      const p=pts[i];
+      const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
+      if(d2<18000*dpr*dpr){const f=(18000*dpr*dpr-d2)/(18000*dpr*dpr);p.vx+=dx/Math.sqrt(d2+1)*f*.15;p.vy+=dy/Math.sqrt(d2+1)*f*.15;}
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=pCol;ctx.fill();
+    }
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j];
+      const dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy,max=140*dpr;
+      if(d2<max*max){const o=1-Math.sqrt(d2)/max;ctx.strokeStyle=lCol.replace(/[\d.]+\)/,(o*0.6).toFixed(2)+')');ctx.lineWidth=1*dpr;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+    }
+    if(!document.hidden)requestAnimationFrame(loop);
+  }
+  loop(0);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)requestAnimationFrame(loop);});
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Floating contact panel toggle
+(function(){
+  const wrap = document.getElementById('fcWrap');
+  const btn  = document.getElementById('fcToggle');
+  if(!wrap||!btn) return;
+  btn.addEventListener('click',()=>{
+    const closed = wrap.classList.toggle('fc-closed');
+    btn.setAttribute('aria-expanded',String(!closed));
+  });
+})();
+
+// Lightbox
+(function(){
+  const overlay = document.getElementById('lbox');
+  const img     = document.getElementById('lboxImg');
+  const caption = document.getElementById('lboxCaption');
+  const closeBtn= document.getElementById('lboxClose');
+  function open(src, alt){
+    img.src = src; img.alt = alt;
+    caption.textContent = alt;
+    overlay.classList.add('lbox-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('lbox-open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.board-img').forEach(el=>{
+    el.addEventListener('click', ()=> open(el.src, el.alt));
+  });
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', e=>{ if(e.target === overlay) close(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+})();
+
+// Guarantee card cursor spotlight
+document.querySelectorAll('.guarantee-card').forEach(card=>{
+  card.addEventListener('pointermove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  },{passive:true});
+});
+</script>
+</body>
+</html>
